@@ -2594,10 +2594,44 @@
         <button class="pub-filter-btn active" data-filter="all">전체</button>
         <button class="pub-filter-btn" data-filter="report">연구보고서</button>
         <button class="pub-filter-btn" data-filter="guide">가이드 · 매뉴얼</button>
+                  <button class="pub-filter-btn" data-filter="brief">연구동향 브리핑</button>
       </div>
 
       <!-- 발간자료 목록 -->
             <div class="pub-list" id="pubList">
+
+                        <div class="acc-item" data-type="brief">
+                          <div class="acc-header" onclick="toggleAcc(this)">
+                            <div style="display:flex;align-items:center;gap:10px;">
+                              <span class="acc-year">2026-07-13</span>
+                              <span class="acc-count">RMRC 연구동향 브리핑</span>
+                            </div>
+                            <div class="acc-right">
+                              <a href="reports/직업재활_산재재활_연구동향_요약_20260713.pdf" target="_blank" rel="noopener" class="acc-annual">↓ PDF 보기</a>
+                              <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                          <div class="acc-body">
+                            <div style="padding:14px 18px;display:flex;gap:14px;align-items:stretch;">
+                              <div style="width:3px;background:var(--color-accent);border-radius:2px;flex-shrink:0;opacity:0.5;"></div>
+                              <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+                                <div style="font-size:11px;font-weight:600;color:var(--color-accent);margin-bottom:8px;letter-spacing:.3px;">이번 주 주요 업데이트</div>
+                                <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border);">
+                                  <span class="acc-badge">업데이트 1</span>
+                                  <span class="acc-title">KoWorC-NHIS 산재보험-건강보험 연계 코호트 데이터 프로파일 정식 게재</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border);">
+                                  <span class="acc-badge">업데이트 2</span>
+                                  <span class="acc-title">WCRI 2026년 산재보험 연차보고서 발간</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:10px;padding:7px 0;">
+                                  <span class="acc-badge">업데이트 3</span>
+                                  <span class="acc-title">근로복지연구원 제11회 산재보험패널 학술대회 개최 예정</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
         <div class="acc-item" data-type="report">
           <div class="acc-header" onclick="toggleAcc(this)">
