@@ -1934,7 +1934,7 @@
   ===================================================== */
 
   /* ── 캐시 ── */
-  function ck(label){ return 'rmrc_trend_' + label.replace(/[^a-zA-Z0-9가-힣]/g,'_'); }
+  function ck(label){ return 'rmrc_trend_v2_' + label.replace(/[^a-zA-Z0-9가-힣]/g,'_'); }
   function saveCache(label,items){ try{ localStorage.setItem(ck(label), JSON.stringify({ts:Date.now(),items})); }catch(e){} }
   function loadCache(label){
     try{
