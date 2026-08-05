@@ -2028,7 +2028,7 @@
         const doc = summaryData.result[uid];
         const authors = (doc.authors||[]).slice(0,3).map(a=>a.name).join(', ')
           + (doc.authors?.length>3 ? ' 외' : '');
-        const pubdate = doc.pubdate ? doc.pubdate.slice(0,7).replace('-','.') : '';
+        const pubdate = doc.pubdate ? (doc.pubdate.match(/^\d{4}[-\s]\d{2}/) ? doc.pubdate.slice(0,7).replace('-','.') : (doc.pubdate.match(/^(\d{4})[-\s]([A-Za-z]{3})/) ? doc.pubdate.replace(/^(\d{4})[-\s]([A-Za-z]{3}).*/, (_,y,mo)=>y+'.'+({Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'}[mo]||mo)) : doc.pubdate.slice(0,4))) : '';
         return {
           source:  'pubmed',
           title:   doc.title || '',
@@ -2078,7 +2078,7 @@
       const items = papers.map(p => {
         const authors = (p.authors||[]).slice(0,3).map(a=>a.name).join(', ')
           + (p.authors?.length>3 ? ' 외' : '');
-        const pubdate = p.publicationDate ? p.publicationDate.slice(0,7).replace('-','.') : (p.year||'');
+        const pubdate = p.publicationDate ? (p.publicationDate.match(/^\d{4}[-\s]\d{2}/) ? p.publicationDate.slice(0,7).replace('-','.') : (p.publicationDate.match(/^(\d{4})[-\s]([A-Za-z]{3})/) ? p.publicationDate.replace(/^(\d{4})[-\s]([A-Za-z]{3}).*/, (_,y,mo)=>y+'.'+({Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'}[mo]||mo)) : p.publicationDate.slice(0,4))) : (p.year||'');
         const pmid = p.externalIds?.PubMed;
         const doi  = p.externalIds?.DOI;
         const url  = pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
