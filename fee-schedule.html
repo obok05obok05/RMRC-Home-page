@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소속병원 요양급여 산정기준 안내포털 | 근로복지공단 인천병원 재활의학연구센터</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <style>
+        :root {
+            /* RMRC(근로복지공단 인천병원 재활의학연구센터) 홈페이지와 통일된 브랜드 컬러 */
+            --primary: #1d4ed8;       /* RMRC 딥블루 — 홈페이지 포인트 컬러와 동일 */
+            --primary-light: #1d4ed8; /* 강조 및 링크 */
+            --primary-dark: #0f172a;  /* RMRC 잉크 블랙 — 헤더 및 주요 텍스트 */
+            --secondary: #0D9488;     /* Medical Teal - 재활임상 & 직장복귀 (RMRC 키워드 정의 팝업과 동일 색) */
+            --secondary-light: #14B8A6;
+            --accent: #F59E0B;        /* Warm Amber - 주의 및 주요 공지 */
+            --bg-body: #eef2f7;       /* RMRC 섹션 배경과 동일 */
+            --bg-card: #FFFFFF;       /* Pure White Card */
+            --text-main: #0f172a;     /* RMRC 본문 텍스트와 동일 */
+            --text-muted: #374151;    /* RMRC 보조 텍스트와 동일 */
+            --border: #d1d9e0;        /* RMRC 경계선과 동일 */
+            --border-hover: #b0bac5;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1. Top Navigation Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding: 0.75rem 2rem;
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-bar .inst-name {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-bar .inst-name span {
+            background-color: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        .top-bar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .top-bar .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 600;
+        }
+        .top-bar .nav-links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .top-bar .btn-print {
+            background: #ffffff;
+            color: var(--primary-dark);
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: background 0.2s;
+        }
+        .top-bar .btn-print:hover { background: #e2e8f0; }
+
+        /* 2. Sub-page Banner & Breadcrumb */
+        .sub-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 60%, #0D9488 100%);
+            color: white;
+            padding: 3.5rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .sub-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.6;
+        }
+        .banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #CBD5E1;
+            margin-bottom: 1rem;
+        }
+        .breadcrumb .current { color: #5EEAD4; font-weight: 600; }
+
+        .sub-banner h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .sub-banner p {
+            font-size: 1.05rem;
+            color: #E2E8F0;
+            max-width: 800px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .banner-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .banner-tag {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: -30px auto 4rem;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 3. Quick Navigation Grid */
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .quick-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .quick-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-hover);
+        }
+        .quick-card.teal { border-left-color: var(--secondary); }
+        .quick-card.amber { border-left-color: var(--accent); }
+        .quick-card.indigo { border-left-color: #6366F1; }
+
+        .quick-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .quick-card p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .quick-card .link-text {
+            font-size: 0.825rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+        .quick-card:hover .link-text { gap: 8px; }
+
+        /* 4. Section Layout */
+        .section {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        .section-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon-box {
+            width: 32px;
+            height: 32px;
+            background-color: #EFF6FF;
+            color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .section-title h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.925rem;
+            margin-top: 4px;
+        }
+
+        /* Callout Box */
+        .callout-box {
+            background: linear-gradient(to right, #F0FDF4, #EFF6FF);
+            border: 1px solid #A7F3D0;
+            border-left: 6px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+        .callout-box .icon {
+            font-size: 1.8rem;
+            background: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+        }
+        .callout-box h4 {
+            color: #065F46;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .callout-box p {
+            font-size: 0.925rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Step Grid */
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .step-card {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            position: relative;
+            transition: border-color 0.2s;
+        }
+        .step-card:hover { border-color: var(--primary-light); }
+        .step-num {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 50px;
+            margin-bottom: 0.75rem;
+        }
+        .step-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        .step-card p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* 5. Modern Tabs & Search Controls */
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            background: #F8FAFC;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.65rem 1rem 0.65rem 2.4rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: white;
+            transition: all 0.2s;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 91, 158, 0.1);
+        }
+        .search-box .search-icon {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .search-count {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.4rem;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: #F1F5F9;
+        }
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            background: #EFF6FF;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.25s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 6. Tables & Badges */
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: white;
+            margin-bottom: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th {
+            background-color: #F8FAFC;
+            color: var(--primary-dark);
+            font-weight: 700;
+            text-align: left;
+            padding: 0.9rem 1rem;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+        td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: #F8FAFC; }
+        
+        .code-badge {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            background-color: #F1F5F9;
+            color: #0F172A;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border: 1px solid #E2E8F0;
+            white-space: nowrap;
+        }
+        .price {
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-align: right;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+        th.price-header { text-align: right; }
+        
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+        .tag.blue { background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .tag.teal { background-color: #F0FDF4; color: #047857; border: 1px solid #A7F3D0; }
+        .tag.amber { background-color: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
+        .tag.purple { background-color: #FAF5FF; color: #6B21A8; border: 1px solid #E9D5FF; }
+
+        .sub-header {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 1.5rem 0 0.8rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+        
+        /* New Styles for Pilot Rehab/Return Work sections */
+        .info-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;
+        }
+        .info-card {
+            border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem;
+        }
+        .info-card h3 {
+            margin-bottom: 0.8rem; display:flex; align-items:center; gap:8px; font-size:1.1rem;
+        }
+        .info-card p { font-size: 0.9rem; color: var(--text-main); margin-bottom: 0.8rem; }
+        .info-card ul { padding-left: 1.2rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+
+        /* 7. Accordion / Act Definitions */
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+            background: white;
+            transition: border-color 0.2s;
+        }
+        .accordion-item:hover { border-color: var(--border-hover); }
+        .accordion-header {
+            padding: 1.1rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F8FAFC;
+            transition: background 0.2s;
+        }
+        .accordion-header:hover { background: #F1F5F9; }
+        .accordion-header .title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .accordion-header .arrow {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: transform 0.25s ease;
+        }
+        .accordion-item.open .accordion-header .arrow { transform: rotate(180deg); }
+        .accordion-body {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .accordion-item.open .accordion-body {
+            padding: 1.5rem;
+            max-height: 1500px;
+            border-top: 1px solid var(--border);
+            overflow-y: auto;
+        }
+        .act-grid {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 1rem;
+            font-size: 0.9rem;
+            align-items: baseline;
+        }
+        .act-label {
+            font-weight: 700;
+            color: var(--primary);
+            background: #EFF6FF;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.825rem;
+        }
+        .act-desc { color: var(--text-main); line-height: 1.6; }
+        
+        .definition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+        .definition-table th, .definition-table td {
+            border: 1px solid var(--border);
+            padding: 8px;
+            text-align: left;
+        }
+        .definition-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+
+        /* 8. Institutional Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #94A3B8;
+            padding: 3.5rem 2rem 2.5rem;
+            font-size: 0.875rem;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .footer-logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-info p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 0.4rem;
+        }
+        .footer-links h4 {
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.6rem; }
+        .footer-links a {
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: white; text-decoration: underline; }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+
+        /* Floating Top Button */
+        .btn-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { background: var(--primary-light); transform: translateY(-3px); }
+
+        @media (max-width: 900px) {
+            .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
+            .top-bar .nav-links { display: none; }
+            .act-grid { grid-template-columns: 1fr; gap: 0.4rem; }
+            .act-label { text-align: left; width: fit-content; }
+        }
+        .scroll-hint { display: none; }
+
+        @media (max-width: 600px) {
+            .sub-banner h1 { font-size: 1.6rem; }
+            .section { padding: 1.5rem; }
+            .controls-bar { flex-direction: column; align-items: stretch; }
+
+            /* 모바일 수가표: '비고'는 대부분 비어있거나 보조 정보라 숨기고,
+               '구분'은 표 위 소제목(제N절 ...)과 내용이 겹치므로 함께 숨겨서
+               코드·명칭·금액 3열만 남긴다 — 스크롤 없이도 금액이 바로 보이도록. */
+            .scroll-hint {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.78rem;
+                color: var(--text-muted);
+                margin: -0.6rem 0 0.9rem;
+            }
+            .data-table th:nth-child(4),
+            .data-table td:nth-child(4) { display: none; }
+            .data-table2 th:nth-child(3),
+            .data-table2 td:nth-child(3),
+            .data-table2 th:nth-child(5),
+            .data-table2 td:nth-child(5) { display: none; }
+
+            table { font-size: 0.8rem; }
+            th, td { padding: 0.7rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Navigation Bar (일반적인 타이틀바 유지) -->
+    <div class="top-bar">
+        <div class="inst-name">
+            <span>공공기관</span> 근로복지공단 인천병원 재활의학연구센터
+        </div>
+        <div class="nav-links">
+            <a href="index.html" style="display:flex;align-items:center;gap:4px;"><i class="ti ti-arrow-left" aria-hidden="true"></i> RMRC 홈페이지</a>
+            <a href="#guide">제도안내</a>
+            <a href="#benefits">급여산정기준 및 수가</a>
+            <a href="#rehab">시범재활·직장복귀</a>
+            <a href="#acts">주요 행위정의</a>
+            <button class="btn-print" onclick="window.print()" title="현재 기준표 인쇄">🖨️ 인쇄</button>
+        </div>
+    </div>
+
+    <!-- 2. Sub-page Banner & Breadcrumb -->
+    <section class="sub-banner">
+        <div class="banner-content">
+            <nav class="breadcrumb">
+                <span>산재재활 임상·제도 안내</span>
+                <span class="sep">❯</span>
+                <span class="current">소속병원 요양급여 산정기준 안내포털</span>
+            </nav>
+            <h1>
+                <span>소속병원 요양급여 산정기준 포털</span>
+                <span style="font-size:0.9rem; background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:8px; font-weight:600;">2026. 1. 시행</span>
+            </h1>
+            <p>근로복지공단 인천병원 재활의학연구센터는 산재 근로자의 조기 치료와 성공적인 직장·사회복귀를 뒷받침하기 위해 맞춤형 전문 요양급여, 시범재활수가 및 첨단 직무지원 보조기구 산정기준을 안내합니다.</p>
+            <div class="banner-tags">
+                <div class="banner-tag"><span>✨</span> 2025.11.27. 개정 / 2026년도 인상률 반영</div>
+                <div class="banner-tag"><span>🏥</span> 인천병원 등 10개 소속병원 적용</div>
+                <div class="banner-tag"><span>🦾</span> 집중재활 및 직무보조기구 특화</div>
+                <div class="banner-tag"><span>💼</span> 산재보험 직장복귀지원 의료기관 연동</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- 3. Quick Navigation Grid -->
+        <div class="quick-grid">
+            <div class="quick-card" onclick="location.href='#guide'">
+                <h3><span>📘 제도 및 요양 안내</span><span>➔</span></h3>
+                <p>일반인과 산재 환자가 알기 쉽게 풀어낸 소속병원 특화 요양급여 제도의 목적과 적용 범위입니다.</p>
+                <span class="link-text">제도 안내 확인 <span>→</span></span>
+            </div>
+            <div class="quick-card teal" onclick="location.href='#benefits'">
+                <h3><span>📊 급여항목 및 수가표</span><span>➔</span></h3>
+                <p>기본진료료, 비급여항목, 의료재활, 간호·간병 등 분류에 따른 전체 청구코드 조회입니다.</p>
+                <span class="link-text">수가표 조회 <span>→</span></span>
+            </div>
+            <div class="quick-card amber" onclick="location.href='#rehab'">
+                <h3><span>🏥 시범재활·직장복귀</span><span>➔</span></h3>
+                <p>재활치료전문 산재보험 의료기관 집중재활 수가 및 직장복귀지원 의료기관 요양급여 범위와 지원금 안내입니다.</p>
+                <span class="link-text">산정기준 확인 <span>→</span></span>
+            </div>
+            <div class="quick-card indigo" onclick="location.href='#acts'">
+                <h3><span>🔍 주요 진료행위 정의</span><span>➔</span></h3>
+                <p>다학제 통합진료, 업무관련성 특별진찰, 운전재활훈련 등 소속병원 특화 행위별 정의와 임상 가이드입니다.</p>
+                <span class="link-text">행위정의 확인 <span>→</span></span>
+            </div>
+        </div>
+
+        <!-- 4. Section 1: Public Guide -->
+        <section id="guide" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box">🏛️</div>
+                    <div>
+                        <h2>소속병원 요양급여 제도 안내</h2>
+                        <p class="section-desc">일반 국민 및 산재 근로자를 위한 맞춤형 의료재활 및 직장복귀지원 제도</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout-box">
+                <div class="icon">💡</div>
+                <div>
+                    <h4>소속병원 요양급여 산정기준의 목적 (제1조, 제2조)</h4>
+                    <p>「산업재해보상보험법」 제11조제2항에 따라 공단 소속병원에서 업무상 재해를 입은 근로자에게 제공하는 <b>의료·직업·사회재활 프로그램 및 진료지원 체계</b>의 요양급여 범위와 비용을 정합니다. 산재 환자에게 전문적이고 집중적인 재활치료와 전문 직무보조기구, 직장복귀 지원금을 제공하여 성공적인 명예복귀를 돕습니다.</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 1.5rem 0 1rem; color: var(--primary-dark); font-size:1.2rem;">핵심 지원 제도 4단계 프로세스</h3>
+            <div class="step-grid">
+                <div class="step-card">
+                    <span class="step-num">STEP 01</span>
+                    <h4>초기 다학제 통합진료</h4>
+                    <p>재활의학과, 직업환경의학과 등 2인 이상의 전문의와 전담 산재관리간호사가 팀을 이루어 요양결정 및 종합재활계획을 함께 수립합니다.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">STEP 02</span>
+                    <h4>1:1 맞춤형 집중재활치료</h4>
+                    <p>부위별(근골격계, 절단 등) 1:1 전담 수기치료와 수중운동, 운전재활훈련, 인지재활 등 고도화된 특화 이학요법을 집중 제공합니다.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">STEP 03</span>
+                    <h4>직업재활 및 작업능력 평가</h4>
+                    <p>직무분석, 인간공학적 작업환경 평가를 진행하고, 모의작업 중심의 작업능력 강화 훈련을 통해 신체적·심리적 업무 수행 능력을 극대화합니다.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">STEP 04</span>
+                    <h4>직장 및 사회 명예복귀</h4>
+                    <p>퇴원환자 재활지도, 생활환경 평가를 거쳐 최첨단 직무지원 보조기구(전자제어식 의지, 특수 휠체어 등)를 맞춤 지급하여 복귀를 지원합니다.</p>
+                </div>
+            </div>
+
+            <div style="background: #F1F5F9; padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-main);">
+                <b>📌 기준 연동 및 실적분석 (제3조, 제4조):</b><br>
+                소속병원 요양급여 운영 실적은 1년 단위로 분석되며, 다른 규정이 산재보험 요양급여 범위에 포함 개정될 경우 즉시 따릅니다. 수가 인상률은 국민건강보험공단의 위원회에서 확정된 유형별 평균 수가 인상률을 적용합니다. (부칙에 따라 2025/2026년도 인상률 적용)
+            </div>
+        </section>
+
+        <!-- 5. Section 2: Benefit Tables & Codes -->
+        <section id="benefits" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box">📊</div>
+                    <div>
+                        <h2>소속병원 요양급여 항목구분 및 청구코드</h2>
+                        <p class="section-desc">비급여항목, 의료재활 프로그램, 직업재활 및 간호·간병통합서비스 전체 분류표</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="controls-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="tableSearch" placeholder="수가명, 청구코드(예: 91505, 보조기구, 다학제) 입력 시 관련 항목이 표시됩니다..." onkeyup="filterTables()">
+                </div>
+                <div id="searchResultCount" class="search-count">전체 항목 표시 중</div>
+            </div>
+            <div class="scroll-hint">모바일에서는 코드·명칭·금액만 표시됩니다 · 비고 등 전체 내용은 PC 화면에서 확인해 주세요</div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'tab-nonpay')"><span>📘</span> 제1장 비급여항목</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-rehab')"><span>💪</span> 제2장 의료재활 프로그램</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-nursing')"><span>🏥</span> 제4장 간호·간병통합서비스</button>
+            </div>
+
+            <!-- Tab 1: 제1장 비급여항목 -->
+            <div id="tab-nonpay" class="tab-content active">
+                
+                <h3 class="sub-header">기본진료료 (01-06)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>청구코드</th>
+                                <th>한글명칭</th>
+                                <th class="price-header">금액(원)</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91557</span></td><td>통합서비스 회의료-3인</td><td class="price">69,610</td><td>수가인상</td></tr>
+<tr><td><span class="code-badge">91593</span></td><td>통합서비스 회의료-3인 초과 1인당-의사 가산</td><td class="price">34,810</td><td></td></tr>
+<tr><td><span class="code-badge">91558</span></td><td>통합서비스 회의료-3인 초과 1인당-해당 분야 전문가 가산</td><td class="price">17,410</td><td></td></tr>
+<tr><td><span class="code-badge">91505</span></td><td>다학제 재활 통합진료료-3인</td><td class="price">129,050</td><td></td></tr>
+<tr><td><span class="code-badge">91506</span></td><td>다학제 재활 통합진료료-4인</td><td class="price">164,680</td><td></td></tr>
+<tr><td><span class="code-badge">91507</span></td><td>다학제 재활 통합진료료-5인 이상</td><td class="price">200,300</td><td></td></tr>
+<tr><td><span class="code-badge">91527</span></td><td>다학제 회의료-3인</td><td class="price">106,890</td><td></td></tr>
+<tr><td><span class="code-badge">91528</span></td><td>다학제 회의료-4인</td><td class="price">142,530</td><td></td></tr>
+<tr><td><span class="code-badge">91529</span></td><td>다학제 회의료-5인 이상</td><td class="price">178,140</td><td></td></tr>
+<tr><td><span class="code-badge">91552</span></td><td>산재환자 진료지원료-입원(1일당)</td><td class="price">19,450</td><td></td></tr>
+<tr><td><span class="code-badge">91553</span></td><td>산재환자 진료지원료-외래(방문당)</td><td class="price">13,610</td><td></td></tr>
+<tr><td><span class="code-badge">91554</span></td><td>특진환자 진료지원료-입원(1일당)</td><td class="price">29,170</td><td></td></tr>
+<tr><td><span class="code-badge">91555</span></td><td>특진환자 진료지원료-외래(방문당)</td><td class="price">20,400</td><td></td></tr>
+<tr><td><span class="code-badge">91598</span></td><td>전문재활환자관리료-입원(1일당)</td><td class="price">27,140</td><td></td></tr>
+<tr><td><span class="code-badge">91599</span></td><td>전문재활환자관리료-외래(방문당)</td><td class="price">12,730</td><td></td></tr>
+<tr><td><span class="code-badge">91559</span></td><td>재활종합계획평가 및 목표설정 지원관리-환자 또는 보호자가 참여한 경우</td><td class="price">17,190</td><td></td></tr>
+<tr><td><span class="code-badge">91509</span></td><td>재활종합계획 평가 및 목표설정 지원관리-재활종합계획 평가료(4인)</td><td class="price">129,050</td><td></td></tr>
+<tr><td><span class="code-badge">91510</span></td><td>재활종합계획 평가 및 목표설정 지원관리-재활종합계획 평가료(4인 초과 1인당)</td><td class="price">20,580</td><td></td></tr>
+<tr><td><span class="code-badge">91511</span></td><td>재활종합계획 평가 및 목표설정 지원관리-재활종합계획 평가료(의사 가산 1인당)</td><td class="price">41,180</td><td></td></tr>
+<tr><td><span class="code-badge">91512</span></td><td>재활종합계획 평가 및 목표설정 지원관리-재활목표설정 지원관리료(4인)</td><td class="price">86,030</td><td></td></tr>
+<tr><td><span class="code-badge">91513</span></td><td>재활종합계획 평가 및 목표설정 지원관리-재활목표설정 지원관리료(4인 초과 1인당)</td><td class="price">13,730</td><td></td></tr>
+<tr><td><span class="code-badge">91514</span></td><td>재활종합계획 평가 및 목표설정 지원관리-재활목표설정 지원관리료(의사 가산 1인당)</td><td class="price">27,450</td><td></td></tr>
+<tr><td><span class="code-badge">91515</span></td><td>산재환자 교육상담료-산재재활 교육·상담료</td><td class="price">69,920</td><td></td></tr>
+<tr><td><span class="code-badge">91516</span></td><td>산재환자 교육상담료-진료정보제공료</td><td class="price">69,920</td><td></td></tr>
+<tr><td><span class="code-badge">91530</span></td><td>산재환자 교육·상담료-퇴원환자 재활지도료</td><td class="price">69,920</td><td></td></tr>
+<tr><td><span class="code-badge">91532</span></td><td>산재환자 교육상담료-집단 교육 프로그램-1) 의스가) 4인이하</td><td class="price">60,110</td><td></td></tr>
+<tr><td><span class="code-badge">91533</span></td><td>산재환자 교육상담료-집단 교육 프로그램-1) 의스가) 5~7인</td><td class="price">40,660</td><td></td></tr>
+<tr><td><span class="code-badge">91534</span></td><td>산재환자 교육상담료-집단 교육 프로그램-1) 의스가) 8인이상</td><td class="price">30,050</td><td></td></tr>
+<tr><td><span class="code-badge">91535</span></td><td>산재환자 교육상담료-집단 교육 프로그램-2) 간호사등가) 4인이하</td><td class="price">40,080</td><td></td></tr>
+<tr><td><span class="code-badge">91536</span></td><td>산재환자 교육상담료-집단 교육 프로그램-2) 간호사-나) 5~7인</td><td class="price">27,110</td><td></td></tr>
+<tr><td><span class="code-badge">91537</span></td><td>산재환자 교육상담료-집단 교육 프로그램-2) 간호사-다) 8인이상</td><td class="price">20,030</td><td></td></tr>
+<tr><td><span class="code-badge">91578</span></td><td>생활현장지원-가. 생활현장방문료(1일당)-주2. 의사가산</td><td class="price">314,660</td><td></td></tr>
+<tr><td><span class="code-badge">91538</span></td><td>생활현장지원-가. 생활현장방문료(1일당)-1). 50km 이내</td><td class="price">64,520</td><td></td></tr>
+<tr><td><span class="code-badge">91577</span></td><td>생활현장지원-가. 생활현장방문료(1일당)-2) 50km 초과 1km 당</td><td class="price">840</td><td></td></tr>
+<tr><td><span class="code-badge">91531</span></td><td>생활현장지원-나. 생활현장지도료</td><td class="price">69,920</td><td></td></tr>
+<tr><td><span class="code-badge">91560</span></td><td>진료기록분석-가. 업무관련성 평가 간단한 것</td><td class="price">136,610</td><td></td></tr>
+<tr><td><span class="code-badge">91561</span></td><td>진료기록분석-가. 업무관련성평가-복잡한 것</td><td class="price">273,190</td><td></td></tr>
+<tr><td><span class="code-badge">91562</span></td><td>진료기록분석-나. 장해등급평가 간단한 것</td><td class="price">100,160</td><td></td></tr>
+<tr><td><span class="code-badge">91563</span></td><td>진료기록분석-장해등급평가 복잡한 것</td><td class="price">273,190</td><td></td></tr>
+<tr><td><span class="code-badge">91564</span></td><td>진료기록분석-기타</td><td class="price">100,160</td><td></td></tr>
+<tr><td><span class="code-badge">91565</span></td><td>사례관리-사례관리계획</td><td class="price">68,300</td><td></td></tr>
+<tr><td><span class="code-badge">91566</span></td><td>사례관리-사례관리 종결 보고</td><td class="price">68,300</td><td></td></tr>
+<tr><td><span class="code-badge">93501</span></td><td>사회복귀 지원 계획-최초</td><td class="price">87,920</td><td></td></tr>
+<tr><td><span class="code-badge">93502</span></td><td>사회복귀 지원 계획변경</td><td class="price">43,970</td><td></td></tr>
+<tr><td><span class="code-badge">93503</span></td><td>사회복귀 지원 관리</td><td class="price">58,520</td><td></td></tr>
+<tr><td><span class="code-badge">93504</span></td><td>사회복귀 지원 연계-간단한 것</td><td class="price">36,140</td><td></td></tr>
+<tr><td><span class="code-badge">93505</span></td><td>사회복귀 지원 연계 복잡한 것</td><td class="price">77,200</td><td></td></tr>
+<tr><td><span class="code-badge">91518</span></td><td>직업력조사</td><td class="price">121,990</td><td></td></tr>
+<tr><td><span class="code-badge">91519</span></td><td>신체부담 요인조사</td><td class="price">115,490</td><td></td></tr>
+<tr><td><span class="code-badge">91540</span></td><td>업무부담 요인조사</td><td class="price">253,140</td><td></td></tr>
+<tr><td><span class="code-badge">91541</span></td><td>소음 노출수준 조사 I</td><td class="price">554,830</td><td></td></tr>
+<tr><td><span class="code-badge">91542</span></td><td>소음 노출수준 조사 II</td><td class="price">137,650</td><td></td></tr>
+<tr><td><span class="code-badge">91591</span></td><td>업무상 스트레스 및 개인적 요인조사</td><td class="price">382,150</td><td></td></tr>
+<tr><td><span class="code-badge">91592</span></td><td>자살사건 조사</td><td class="price">119,170</td><td></td></tr>
+<tr><td><span class="code-badge">93510</span></td><td>직업재활 상담료-대면 상담-의사</td><td class="price">66,770</td><td></td></tr>
+<tr><td><span class="code-badge">93511</span></td><td>직업재활 상담료-대면 상담-물리치료사 등</td><td class="price">49,920</td><td></td></tr>
+<tr><td><span class="code-badge">93521</span></td><td>직업재활 상담료-비대면 상담(전화상담)</td><td class="price">13,950</td><td></td></tr>
+<tr><td><span class="code-badge">91594</span></td><td>집단 상담료-의사 4인</td><td class="price">126,060</td><td></td></tr>
+<tr><td><span class="code-badge">91595</span></td><td>집단 상담료-의사 4인 초과 1인당</td><td class="price">20,110</td><td></td></tr>
+<tr><td><span class="code-badge">91596</span></td><td>집단 상담료-임상심리사 등 4인</td><td class="price">63,020</td><td></td></tr>
+<tr><td><span class="code-badge">91597</span></td><td>집단 상담료-임상심리사 등 4인 초과 1인당</td><td class="price">10,060</td><td></td></tr>
+<tr><td><span class="code-badge">93513</span></td><td>자료분석료</td><td class="price">66,770</td><td></td></tr>
+<tr><td><span class="code-badge">93514</span></td><td>업무관련성 특별진찰 프로그램-근골격계 질병</td><td class="price">987,440</td><td></td></tr>
+<tr><td><span class="code-badge">93516</span></td><td>업무관련성 특별진찰 프로그램-뇌혈관, 심장질병</td><td class="price">1,398,710</td><td></td></tr>
+<tr><td><span class="code-badge">93517</span></td><td>업무관련성 특별진찰 프로그램-정신질병</td><td class="price">1,399,610</td><td></td></tr>
+<tr><td><span class="code-badge">93520</span></td><td>업무관련성 특별진찰 프로그램-자살</td><td class="price">1,868,970</td><td></td></tr>
+<tr><td><span class="code-badge">93518</span></td><td>업무관련성 특별진찰 프로그램-소음성 난청</td><td class="price">565,070</td><td></td></tr>
+<tr><td><span class="code-badge">93509</span></td><td>기본 직무상담</td><td class="price">22,510</td><td></td></tr>
+<tr><td><span class="code-badge">91521</span></td><td>직무분석-인간공학적 평가-간단한 것</td><td class="price">173,230</td><td></td></tr>
+<tr><td><span class="code-badge">91522</span></td><td>직무분석-인간공학적 평가 복잡한 것</td><td class="price">346,470</td><td></td></tr>
+<tr><td><span class="code-badge">91568</span></td><td>직장복귀 지원 계획-최초</td><td class="price">89,940</td><td></td></tr>
+<tr><td><span class="code-badge">91569</span></td><td>직장복귀 지원 계획변경</td><td class="price">44,970</td><td></td></tr>
+<tr><td><span class="code-badge">93506</span></td><td>장해진단 특별진찰 프로그램-상지 프로그램 (어깨, 팔꿈치, 손목, 손)</td><td class="price">992,450</td><td></td></tr>
+<tr><td><span class="code-badge">93507</span></td><td>장해진단 특별진찰 프로그램-하지 프로그램 (고관절·대퇴, 무릎, 발)</td><td class="price">1,091,380</td><td></td></tr>
+<tr><td><span class="code-badge">93508</span></td><td>장해진단 특별진찰 프로그램-척추 프로그램 (경추, 흉추, 요천추)</td><td class="price">1,142,240</td><td></td></tr>
+</tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">검사료 (09-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91113</span></td><td>6분 보행 검사</td><td class="price">5,450</td><td></td></tr>
+<tr><td><span class="code-badge">91170</span></td><td>신경학적평가</td><td class="price">163,710</td><td></td></tr>
+<tr><td><span class="code-badge">91171</span></td><td>직업재활평가</td><td class="price">92,070</td><td></td></tr>
+<tr><td><span class="code-badge">91172</span></td><td>생활환경평가</td><td class="price">89,160</td><td></td></tr>
+<tr><td><span class="code-badge">91114</span></td><td>삶의 질 평가-세인트조지 호흡기 설문</td><td class="price">8,850</td><td></td></tr>
+<tr><td><span class="code-badge">91115</span></td><td>삶의 질 평가-COPD 평가 검사(CAT)</td><td class="price">1,970</td><td></td></tr>
+<tr><td><span class="code-badge">91173</span></td><td>삶의 질 평가-삶의 질 척도</td><td class="price">8,850</td><td></td></tr>
+<tr><td><span class="code-badge">91174</span></td><td>성기능 평가-기본 평가</td><td class="price">740,880</td><td></td></tr>
+<tr><td><span class="code-badge">91175</span></td><td>성기능 평가-추적 평가</td><td class="price">48,880</td><td></td></tr>
+<tr><td><span class="code-badge">91181</span></td><td>관절계를 이용한 무릎관절인대검사</td><td class="price">53,040</td><td></td></tr>
+<tr><td><span class="code-badge">91182</span></td><td>동적 족저압측정</td><td class="price">58,930</td><td></td></tr>
+<tr><td><span class="code-badge">91198</span></td><td>신체기능강화 상태 평가-간단</td><td class="price">75,610</td><td></td></tr>
+<tr><td><span class="code-badge">91187</span></td><td>신체기능강화 상태 평가 복잡</td><td class="price">176,370</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">처치 및 수술료 (08-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91302</span></td><td>경피적 경막외강 신경성형술</td><td class="price">591,590</td><td></td></tr>
+<tr><td><span class="code-badge">91303</span></td><td>음경보형물 삽입술</td><td class="price">591,590</td><td></td></tr>
+<tr><td><span class="code-badge">91304</span></td><td>음경보형물 제거술</td><td class="price">147,900</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">사업장 훈련지도 (99-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91900</span></td><td>사업장 훈련지도</td><td class="price">55,880</td><td></td></tr>
+<tr><td><span class="code-badge">91914</span></td><td>사업장 훈련지도 실시계획</td><td class="price">68,300</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">확인수수료 (57-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91508</span></td><td>장해진단 전문의료기관용 장해진단서 발급</td><td class="price">101,290</td><td></td></tr>
+<tr><td><span class="code-badge">91819</span></td><td>장해진단서(난청)</td><td class="price">45,010</td><td></td></tr>
+<tr><td><span class="code-badge">91812</span></td><td>업무관련성 특별진찰 소견서-근골격계 질병</td><td class="price">253,210</td><td></td></tr>
+<tr><td><span class="code-badge">91813</span></td><td>업무관련성 특벌진찰 소견서-뇌혈관, 심장질병</td><td class="price">168,820</td><td></td></tr>
+<tr><td><span class="code-badge">91814</span></td><td>업무관련성 특벌진찰 소견서-자살</td><td class="price">436,100</td><td></td></tr>
+<tr><td><span class="code-badge">91820</span></td><td>업무관련성 특벌진찰 소견서-정신질병</td><td class="price">168,820</td><td></td></tr>
+<tr><td><span class="code-badge">91821</span></td><td>업무관련성 특벌진찰 소견서-소음성 난청</td><td class="price">168,820</td><td></td></tr>
+<tr><td><span class="code-badge">91815</span></td><td>정신질병 상병확인 특별진찰 소견서</td><td class="price">168,820</td><td></td></tr>
+<tr><td><span class="code-badge">93519</span></td><td>업무관련성 특진 결과 상담료</td><td class="price">66,770</td><td></td></tr>
+<tr><td><span class="code-badge">91803</span></td><td>업무 적합성 평가소견서</td><td class="price">168,820</td><td></td></tr>
+<tr><td><span class="code-badge">91822</span></td><td>직장복귀지원 기초 상담료</td><td class="price">22,510</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">직무지원 보조기구 (54-01 / 54-02)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91703</span></td><td>직무지원 보조기구 처방 및 검수료</td><td class="price">58,170</td><td></td></tr>
+<tr><td><span class="code-badge">91704</span></td><td>직무지원 보조기구 제작 계획서</td><td class="price">105,830</td><td></td></tr>
+<tr><td><span class="code-badge">91706</span></td><td>직무지원 보조기구-팔의지-기계식</td><td class="price">2,875,600</td><td></td></tr>
+<tr><td><span class="code-badge">91705</span></td><td>직무지원 보조기구-팔의지-전자제어식-일반</td><td class="price">9,611,170</td><td></td></tr>
+<tr><td><span class="code-badge">91713</span></td><td>직무지원 보조기구-팔의지-전자제어식-특수</td><td class="price">19,312,200</td><td></td></tr>
+<tr><td><span class="code-badge">91707</span></td><td>직무지원 보조기구-팔의지-특수코팅-기본</td><td class="price">369,220</td><td></td></tr>
+<tr><td><span class="code-badge">91708</span></td><td>직무지원 보조기구-팔의지-특수코팅-맞춤</td><td class="price">1,019,150</td><td></td></tr>
+<tr><td><span class="code-badge">91709</span></td><td>직무지원 보조기구-다리의지-인공무릎 기계식</td><td class="price">5,148,210</td><td></td></tr>
+<tr><td><span class="code-badge">91714</span></td><td>직무지원 보조기구-다리의지-인공무릎-전자제어식</td><td class="price">20,130,100</td><td></td></tr>
+<tr><td><span class="code-badge">91710</span></td><td>직무지원 보조기구-다리의지-인공발-일반 작업</td><td class="price">2,268,010</td><td></td></tr>
+<tr><td><span class="code-badge">91711</span></td><td>직무지원 보조기구-다리의지-인공발-특수 작업-기계식</td><td class="price">4,510,840</td><td></td></tr>
+<tr><td><span class="code-badge">91715</span></td><td>직무지원 보조기구-다리의지-인공발-특수 작업-전자제어식</td><td class="price">12,689,920</td><td></td></tr>
+<tr><td><span class="code-badge">91712</span></td><td>직무지원 보조기구-휠체어-일반</td><td class="price">4,974,870</td><td></td></tr>
+<tr><td><span class="code-badge">91716</span></td><td>직무지원 보조기구-휠체어-특수</td><td class="price">7,315,160</td><td></td></tr>
+<tr><td><span class="code-badge">91717</span></td><td>기타-맞춤 신발</td><td class="price">1,305,650</td><td></td></tr>
+<tr><td><span class="code-badge">91718</span></td><td>기타-맞춤 깔창</td><td class="price">997,930</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 2: 제2장 의료재활 프로그램 -->
+            <div id="tab-rehab" class="tab-content">
+                <h3 class="sub-header">검사료 (09-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91158</span></td><td>근골격계 기능 평가 근골격계 기능 평가(상지)</td><td class="price">117,440</td><td></td></tr>
+<tr><td><span class="code-badge">91159</span></td><td>근골격계 기능 평가 근골격계 기능 평가(하지)</td><td class="price">74,130</td><td></td></tr>
+<tr><td><span class="code-badge">91160</span></td><td>중추신경계 기능 평가 중추신경계 기능 평가(상지)</td><td class="price">169,660</td><td></td></tr>
+<tr><td><span class="code-badge">91161</span></td><td>중추신경계 기능 평가-중추신경계 기능 평가(하지)</td><td class="price">102,380</td><td></td></tr>
+<tr><td><span class="code-badge">91157</span></td><td>집중재활치료 다차원 평가 다차원 어깨평가 및 상지평가</td><td class="price">88,370</td><td></td></tr>
+<tr><td><span class="code-badge">91162</span></td><td>집중재활치료 다차원 평가-다차원 수부 평가</td><td class="price">146,410</td><td></td></tr>
+<tr><td><span class="code-badge">91163</span></td><td>집중재활치료 다차원 평가-다차원 허리 평가</td><td class="price">88,070</td><td></td></tr>
+<tr><td><span class="code-badge">91186</span></td><td>집중재활치료 다차원 평가-다차원 경추평가</td><td class="price">75,970</td><td></td></tr>
+<tr><td><span class="code-badge">91165</span></td><td>집중재활치료 다차원 평가 다차원 하지 평가</td><td class="price">90,680</td><td></td></tr>
+<tr><td><span class="code-badge">91166</span></td><td>재활보조기구 다차원평가 다차원 상지절단 (손목관절 이단 이상)</td><td class="price">237,640</td><td></td></tr>
+<tr><td><span class="code-badge">91167</span></td><td>재활보조기구다차원평가 다차원 상지절단 (절단 이하)</td><td class="price">257,390</td><td></td></tr>
+<tr><td><span class="code-badge">91168</span></td><td>재활보조기구다차원평가 다차원 하지절단 평가</td><td class="price">161,530</td><td></td></tr>
+<tr><td><span class="code-badge">91188</span></td><td>다차원 재활스포츠 평가</td><td class="price">48,620</td><td></td></tr>
+<tr><td><span class="code-badge">91189</span></td><td>휠체어 이동 수행능력 평가 수동휠체어</td><td class="price">47,380</td><td></td></tr>
+<tr><td><span class="code-badge">91190</span></td><td>휠체어 이동 수행능력 평가-전동휠체어</td><td class="price">47,380</td><td></td></tr>
+<tr><td><span class="code-badge">91156</span></td><td>운전능력 평가-기본 평가</td><td class="price">160,690</td><td></td></tr>
+<tr><td><span class="code-badge">91191</span></td><td>운전능력 평가 수행 평가</td><td class="price">160,690</td><td></td></tr>
+<tr><td><span class="code-badge">91178</span></td><td>일상생활동작 수행분석 평가-기본 평가</td><td class="price">94,740</td><td></td></tr>
+<tr><td><span class="code-badge">91179</span></td><td>일상생활동작 수행분석 평가 정밀 평가</td><td class="price">161,990</td><td></td></tr>
+<tr><td><span class="code-badge">91183</span></td><td>다차원 인지기능 평가</td><td class="price">248,660</td><td></td></tr>
+<tr><td><span class="code-badge">91177</span></td><td>정신건강 및 심리회복 프로그램 평가-심층심리검사</td><td class="price">169,230</td><td></td></tr>
+<tr><td><span class="code-badge">91184</span></td><td>다차원 정신평가-사전 평가</td><td class="price">585,310</td><td></td></tr>
+<tr><td><span class="code-badge">91185</span></td><td>다차원 정신평가 사후 평가</td><td class="price">105,210</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">이학요법료 (06-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91605</span></td><td>근골격계 집중재활치료-어깨 및 상지 집중재활치료[30분당]</td><td class="price">39,280</td><td></td></tr>
+<tr><td><span class="code-badge">91606</span></td><td>근골격계 집증재활치료-수부 집중재활치료[30분당]</td><td class="price">30,640</td><td></td></tr>
+<tr><td><span class="code-badge">91607</span></td><td>근골격계 집중재활치료-허리 집중재활치료[30분당]</td><td class="price">37,260</td><td></td></tr>
+<tr><td><span class="code-badge">91608</span></td><td>근골격계 집중재활치료-하지 집중재활치료[30분당]</td><td class="price">28,110</td><td></td></tr>
+<tr><td><span class="code-badge">91609</span></td><td>재활보조기구 집중재활치료-상지 절단 집중재활치료 30분당</td><td class="price">39,280</td><td></td></tr>
+<tr><td><span class="code-badge">91610</span></td><td>재활보조기구 집중재활치료-상지 절단 집중의지훈련[30분당]</td><td class="price">30,640</td><td></td></tr>
+<tr><td><span class="code-badge">91611</span></td><td>재활보조기구 집중재활치료-하지 절단 집중재활치료[30분당]</td><td class="price">28,110</td><td></td></tr>
+<tr><td><span class="code-badge">91612</span></td><td>재활보조기구 집중재활치료-하지 절단 집중의지훈련[30분당]</td><td class="price">28,110</td><td></td></tr>
+<tr><td><span class="code-badge">91618</span></td><td>재활보조기구 집중재활치료-휠체어 및 이동보조기구 집중재활 훈련(30분당)</td><td class="price">45,950</td><td></td></tr>
+<tr><td><span class="code-badge">91604</span></td><td>운전재활훈련[30분당]</td><td class="price">41,250</td><td></td></tr>
+<tr><td><span class="code-badge">91613</span></td><td>일상생활동작 집중훈련(30분당)</td><td class="price">45,950</td><td></td></tr>
+<tr><td><span class="code-badge">91614</span></td><td>일상생활 보조도구 훈련(30분당)</td><td class="price">30,640</td><td></td></tr>
+<tr><td><span class="code-badge">91615</span></td><td>인지재활훈련(30분당)</td><td class="price">29,940</td><td></td></tr>
+<tr><td><span class="code-badge">91616</span></td><td>집단치료(30분당)-운동치료</td><td class="price">12,100</td><td></td></tr>
+<tr><td><span class="code-badge">91617</span></td><td>집단치료(30분당)-작업치료</td><td class="price">12,100</td><td></td></tr>
+<tr><td><span class="code-badge">91213</span></td><td>언어그룹치료</td><td class="price">26,940</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">기타 (99-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91902</span></td><td>집단심리회복 프로그램(30분당)-4인 이하</td><td class="price">40,080</td><td></td></tr>
+<tr><td><span class="code-badge">91903</span></td><td>집단심리회복 프로그램(30분당)-5~7인</td><td class="price">27,110</td><td></td></tr>
+<tr><td><span class="code-badge">91904</span></td><td>집단 심리회복 프로그램(30분당)-8인이상</td><td class="price">20,030</td><td></td></tr>
+<tr><td><span class="code-badge">91907</span></td><td>정신질병 치료프로그램-정신상담(30분당)</td><td class="price">68,300</td><td></td></tr>
+<tr><td><span class="code-badge">91908</span></td><td>정신질병 치료프로그램-인지행동치료</td><td class="price">59,130</td><td></td></tr>
+<tr><td><span class="code-badge">91909</span></td><td>정신질병 치료프로그램-정신역동적 정신치료</td><td class="price">96,690</td><td></td></tr>
+<tr><td><span class="code-badge">91910</span></td><td>정신질병 치료프로그램-안정화기법</td><td class="price">40,950</td><td></td></tr>
+<tr><td><span class="code-badge">91911</span></td><td>정신질병 치료프로그램-바이오피드백치료</td><td class="price">56,180</td><td></td></tr>
+<tr><td><span class="code-badge">91912</span></td><td>정신질병 치료프로그램-안구운동민감소실 및 재처리요법</td><td class="price">160,240</td><td></td></tr>
+<tr><td><span class="code-badge">91913</span></td><td>정신질병 치료프로그램-정신치료프로그램-6) 마음챙김</td><td class="price">39,140</td><td></td></tr>
+<tr><td><span class="code-badge">91915</span></td><td>재활 특별진찰 프로그램-재활프로그램 I (근골격계)</td><td class="price">1,364,830</td><td></td></tr>
+<tr><td><span class="code-badge">91916</span></td><td>재활 특별진찰 프로그램-재활프로그램 II(절단)</td><td class="price">1,597,720</td><td></td></tr>
+<tr><td><span class="code-badge">91917</span></td><td>진폐 집중재활프로그램</td><td class="price">1,394,340</td><td></td></tr>
+<tr><td><span class="code-badge">91619</span></td><td>재활스포츠 프로그램 [30분당]</td><td class="price">24,840</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">재활보조기구 (99-01) / 확인수수료 (57-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91905</span></td><td>일상생활 보조도구 제작-간단한 것</td><td class="price">56,280</td><td></td></tr>
+<tr><td><span class="code-badge">91906</span></td><td>일상생활 보조도구 제작-복잡한 것</td><td class="price">101,290</td><td></td></tr>
+<tr><td><span class="code-badge">91818</span></td><td>재활 특별진찰 평가 소견서</td><td class="price">78,780</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 3: 제4장 간호간병통합서비스 -->
+            <div id="tab-nursing" class="tab-content">
+                <h3 class="sub-header">기본진료료 (01-06)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91581</span></td><td>간병·재활요구도 평가</td><td class="price">35,490</td><td></td></tr>
+<tr><td><span class="code-badge">91582</span></td><td>중증환자 간호·간병지원료(1일당)-3:1미만</td><td class="price">139,640</td><td></td></tr>
+<tr><td><span class="code-badge">91583</span></td><td>중증환자 간호·간병지원료(1일당)-3:1이상 4:1미만</td><td class="price">93,090</td><td></td></tr>
+<tr><td><span class="code-badge">91584</span></td><td>중증환자 간호·간병지원료(1일당)-4:1</td><td class="price">69,820</td><td></td></tr>
+<tr><td><span class="code-badge">91586</span></td><td>간호·간병통합서비스 통합간호료-입원환자 통합간호료</td><td class="price">40,880</td><td></td></tr>
+<tr><td><span class="code-badge">91587</span></td><td>간호·간병통합서비스 통합간호료-퇴원환자 통합간호료</td><td class="price">27,930</td><td></td></tr>
+<tr><td><span class="code-badge">91588</span></td><td>간호·간병통합서비스 통합간호료-수술 전 통합간호료(1일당)</td><td class="price">33,450</td><td></td></tr>
+<tr><td><span class="code-badge">91589</span></td><td>간호·간병통합서비스 통합간호료-수술 후 통합간호료(1일당)</td><td class="price">49,450</td><td></td></tr>
+<tr><td><span class="code-badge">91590</span></td><td>간호·간병통합서비스 통합간호료-재활간호료(30분당)</td><td class="price">46,460</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">처치 및 수술료 (08-01)</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>청구코드</th><th>한글명칭</th><th class="price-header">금액(원)</th><th>비고</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91305</span></td><td>식이 집중관리료(1일당)-전적인 식사보조</td><td class="price">55,860</td><td></td></tr>
+<tr><td><span class="code-badge">91306</span></td><td>식이 집중관리료(1일당)-부분적인 식사보조</td><td class="price">18,610</td><td></td></tr>
+<tr><td><span class="code-badge">91307</span></td><td>배설관리 간호료</td><td class="price">22,520</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="background:#F8FAFC; padding:1rem; border:1px solid #E2E8F0; border-radius:8px; font-size:0.85rem; color:#64748B; margin-top:1rem; line-height:1.8;">
+                    <b>* 삭제 이력 정보</b><br>
+                    * 기본진료료(91503, 91504) 연하장애재활치료평가회의료 '18. 4. 2. 삭제 <br>
+                    * 기본진료료(91517) 퇴원환자 재활지도료는 기본진료료(91530)재활지도료로 변경 <br>
+                    * 검사료(91111) 연하장애임상평가 '19. 1. 2. 삭제 <br>
+                    * 이학요법료(91214) 집단작업치료 '19. 1. 2. 삭제 <br>
+                    * 검사료(91180) Bladder scan을 이용한 방광 잔뇨량 측정검사 '19. 9. 1. 삭제 <br>
+                    * 확인수수료(91801) 업무 관련성 평가 소견서 '19. 1. 2. 삭제
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Section 3: Pilot Rehab & Return to work -->
+        <section id="rehab" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box">🏥</div>
+                    <div>
+                        <h2>시범재활수가 및 직장복귀 지원의료기관 산정기준</h2>
+                        <p class="section-desc">재활치료전문 산재보험 의료기관(재활인증병원) 및 직장복귀지원 의료기관 전용</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card" style="background: #FAF5FF; border-left: 5px solid #8B5CF6;">
+                    <h3 style="color: #6B21A8;"><span>🏥</span> 집중재활치료 대상자 기준</h3>
+                    <p>재활인증병원에서 전문적인 재활치료 효과가 기대되는 다음의 산재환자를 대상으로 합니다.</p>
+                    <ul>
+                        <li><b>뇌혈관(뇌손상 포함) 질환:</b> 발병일 또는 수술일부터 <b>6개월 이내</b></li>
+                        <li><b>근골격계 질환:</b> 척추, 견관절, 주관절, 완관절·수부, 고관절, 슬관절, 족관절·족부 질환으로 발병·수술일로부터 <b>3개월 이내</b></li>
+                        <li><b>기간 경과자:</b> 위 기간이 경과하였으나 의학적으로 전문 재활치료 효과가 기대된다는 의사 소견이 있는 경우 (기본 3개월, 최대 6~9개월 연장 가능)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" style="background: #FFFBEB; border-left: 5px solid var(--accent);">
+                    <h3 style="color: #B45309;"><span>💼</span> 직장복귀 지원 요양급여 개요</h3>
+                    <p>직장복귀지원 의료기관에서 산재근로자에게 직무 복귀를 돕기 위한 다양한 지원서비스를 제공합니다.</p>
+                    <ul>
+                        <li><b>비용 부담 원칙:</b> 본 산정기준에 따른 조치 비용(작업능력평가 등)은 <b>산재근로자 본인에게 절대 부담시켜서는 안 됩니다.</b></li>
+                        <li><b>재활치료 지원:</b> 직장복귀를 위해 신체기능 회복이 필요하다는 의학적 소견 시, 재활인증병원 집중재활치료(기본진료료 제외)를 지원할 수 있습니다.</li>
+                        <li><b>현장 지도 및 훈련:</b> 의사/기사의 사업장 직접 방문 평가, 작업환경 개선지도, 1일 최대 4시간의 신체 및 모의작업 강화 훈련이 가능합니다.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 style="margin: 1.5rem 0 1rem; color: var(--primary-dark); font-size:1.15rem;">📋 주요 시범재활수가 및 직장복귀 지원 수가표 전체</h3>
+
+            <div class="controls-bar">
+                <div class="search-box">
+                    <input type="text" id="tableSearch2" placeholder="🔍 수가명 또는 코드 검색 (예: 91545)" onkeyup="filterTables2()">
+                </div>
+                <div id="searchResultCount2" class="search-count">전체 항목 표시 중</div>
+            </div>
+            <div class="scroll-hint">모바일에서는 코드·명칭·금액만 표시됩니다 · 비고 등 전체 내용은 PC 화면에서 확인해 주세요</div>
+
+            <div class="tabs">
+                <button class="tab-btn2 active" onclick="openTab2(event, 'tab-pilot')">시범재활수가 (집중재활치료)</button>
+                <button class="tab-btn2" onclick="openTab2(event, 'tab-return')">직장복귀지원 의료기관 기준</button>
+            </div>
+
+            <!-- TAB 1: 시범재활수가 -->
+            <div id="tab-pilot" class="tab-content2 active">
+                
+                <h2 style="font-size: 1.3rem; margin-top:1rem; color:var(--primary-dark);">제1장 비급여에 대한 요양급여 인정 항목</h2>
+                
+                <h3 class="sub-header">제1절 기본진료료</h3>
+                <div class="table-container">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91543</span></td><td>입원 집중재활환자관리료(1일당)</td><td><span class="tag blue">기본진료료</span></td><td class="price">24,120</td><td>입원 중 외박 산정 시 제외</td></tr>
+<tr><td><span class="code-badge">91544</span></td><td>통원 집중재활환자관리료(방문당)</td><td><span class="tag blue">기본진료료</span></td><td class="price">11,310</td><td>1일 2회 내원 시 1일 1회 산정</td></tr>
+<tr><td><span class="code-badge">91545</span></td><td>집중재활 의료기관 변경 지원금(15일 이내)</td><td><span class="tag blue">기본진료료</span></td><td class="price">700,000</td><td>수술 후 15일은 산입 제외</td></tr>
+<tr><td><span class="code-badge">91546</span></td><td>집중재활 의료기관 변경 지원금(16-30일 이내)</td><td><span class="tag blue">기본진료료</span></td><td class="price">500,000</td><td>수술 후 15일은 산입 제외</td></tr>
+<tr><td><span class="code-badge">91547</span></td><td>집중재활 의료기관 변경 지원금(31-45일 이내)</td><td><span class="tag blue">기본진료료</span></td><td class="price">300,000</td><td>수술 후 15일은 산입 제외</td></tr>
+<tr><td><span class="code-badge">91548</span></td><td>직업재활 의료기관 변경 지원금</td><td><span class="tag blue">기본진료료</span></td><td class="price">300,000</td><td>프로그램 운영 재활인증병원으로 전원</td></tr>
+<tr><td><span class="code-badge">91549</span></td><td>집중재활전과지원금(15일 이내)</td><td><span class="tag blue">기본진료료</span></td><td class="price">150,000</td><td>재활인증병원 내 재활의학과 전과</td></tr>
+<tr><td><span class="code-badge">91550</span></td><td>집중재활전과지원금(16-30일 이내)</td><td><span class="tag blue">기본진료료</span></td><td class="price">100,000</td><td>재활인증병원 내 재활의학과 전과</td></tr>
+<tr><td><span class="code-badge">91551</span></td><td>집중재활전과지원금(31-45일 이내)</td><td><span class="tag blue">기본진료료</span></td><td class="price">50,000</td><td>재활인증병원 내 재활의학과 전과</td></tr>
+<tr><td><span class="code-badge">91575</span></td><td>재활치료 종합계획관리료 - 최초</td><td><span class="tag blue">기본진료료</span></td><td class="price">60,300</td><td>전문의 1인 포함 4인 이상, 치료기간 중 3회 이내</td></tr>
+<tr><td><span class="code-badge">91576</span></td><td>재활치료 종합계획관리료 - 2회 이상</td><td><span class="tag blue">기본진료료</span></td><td class="price">40,200</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">제2절 검사료</h3>
+                <div class="table-container">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91116</span></td><td>동적체평형검사</td><td><span class="tag blue">검사료</span></td><td class="price">32,870</td><td>30분 이상 검사, 월 1회 (최대 3회 이내)</td></tr>
+<tr><td><span class="code-badge">91192</span></td><td>관절계를 이용한 무릎관절인대검사</td><td><span class="tag blue">검사료</span></td><td class="price">47,130</td><td>월 1회 (최대 3회 이내)</td></tr>
+<tr><td><span class="code-badge">91193</span></td><td>동적 족저압 측정검사</td><td><span class="tag blue">검사료</span></td><td class="price">52,360</td><td>월 1회 (최대 2회 이내)</td></tr>
+<tr><td><span class="code-badge">91194</span></td><td>근골격계 기능평가 - 상지</td><td><span class="tag blue">검사료</span></td><td class="price">66,560</td><td>월 1회 (양측 50% 가산)</td></tr>
+<tr><td><span class="code-badge">91195</span></td><td>근골격계 기능평가 - 하지</td><td><span class="tag blue">검사료</span></td><td class="price">40,590</td><td>월 1회 (양측 50% 가산)</td></tr>
+<tr><td><span class="code-badge">91196</span></td><td>중추신경계 기능평가 - 상지</td><td><span class="tag blue">검사료</span></td><td class="price">111,250</td><td>월 1회 (양측 50% 가산)</td></tr>
+<tr><td><span class="code-badge">91197</span></td><td>중추신경계 기능평가 - 하지</td><td><span class="tag blue">검사료</span></td><td class="price">62,880</td><td>월 1회 (양측 50% 가산)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">제3절 이학요법료</h3>
+                <div class="table-container">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91202</span></td><td>집단운동치료</td><td><span class="tag blue">이학요법료</span></td><td class="price">6,920</td><td>5~10인 이내, 40분 이상 (종별가산 적용)</td></tr>
+<tr><td><span class="code-badge">91203</span></td><td>집단상담치료</td><td><span class="tag blue">이학요법료</span></td><td class="price">10,030</td><td>2인 이상 45분 이상 (종별가산 적용)</td></tr>
+<tr><td><span class="code-badge">91401</span></td><td>기본 수중운동평가</td><td><span class="tag blue">이학요법료</span></td><td class="price">37,310</td><td>치료기간 중 3회 이내</td></tr>
+<tr><td><span class="code-badge">91409</span></td><td>수중 내 운동평가 I</td><td><span class="tag blue">이학요법료</span></td><td class="price">103,030</td><td>스스로 거동이 어려운 경우</td></tr>
+<tr><td><span class="code-badge">91410</span></td><td>수중 내 운동평가 II</td><td><span class="tag blue">이학요법료</span></td><td class="price">75,910</td><td>스스로 거동이 가능한 경우</td></tr>
+<tr><td><span class="code-badge">91402</span></td><td>수중운동치료-개인(1일당)</td><td><span class="tag blue">이학요법료</span></td><td class="price">53,460</td><td>물리치료사 1:1, 30분 이상</td></tr>
+<tr><td><span class="code-badge">91403</span></td><td>수중운동치료-집단(30분 이상)(1일당)</td><td><span class="tag blue">이학요법료</span></td><td class="price">35,140</td><td>물리치료사 1인, 환자 2인 이상</td></tr>
+<tr><td><span class="code-badge">91404</span></td><td>수중운동치료-집단(60분 이상)(1일당)</td><td><span class="tag blue">이학요법료</span></td><td class="price">70,280</td><td>물리치료사 1인, 환자 2인 이상</td></tr>
+<tr><td><span class="code-badge">91405</span></td><td>집단작업치료</td><td><span class="tag blue">이학요법료</span></td><td class="price">11,530</td><td>작업치료사 1인, 환자 2~4인 30분 이상</td></tr>
+<tr><td><span class="code-badge">91407</span></td><td>집단언어치료(1일당)</td><td><span class="tag blue">이학요법료</span></td><td class="price">23,940</td><td>언어재활사 1인, 환자 2~4인 30분 이상</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">제4절 기타</h3>
+                <div class="table-container">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">91208</span></td><td>근육내자극술-단순</td><td><span class="tag blue">기타</span></td><td class="price">5,760</td><td>통증부위 직접 실시 (1일 최대 2부위, 2부위 50%가산)</td></tr>
+<tr><td><span class="code-badge">91211</span></td><td>재활심리상담-개인</td><td><span class="tag blue">기타</span></td><td class="price">8,990</td><td>20~40분 이상 심리상담 (치료기간 중 3회 이내)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 style="font-size: 1.3rem; margin-top:2.5rem; color:var(--primary-dark); padding-top:1rem; border-top:2px solid var(--border);">제2장 재활프로그램</h2>
+                
+                <h3 class="sub-header">제1절 검사료</h3>
+                <div class="table-container">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">81157</span></td><td>다차원 어깨 및 상지 평가</td><td><span class="tag blue">검사료</span></td><td class="price">74,990</td><td>치료기간 중 4회 이내</td></tr>
+<tr><td><span class="code-badge">81162</span></td><td>다차원 수부 평가</td><td><span class="tag blue">검사료</span></td><td class="price">124,250</td><td>치료기간 중 4회 이내</td></tr>
+<tr><td><span class="code-badge">81163</span></td><td>다차원 허리 평가</td><td><span class="tag blue">검사료</span></td><td class="price">69,590</td><td>치료기간 중 4회 이내</td></tr>
+<tr><td><span class="code-badge">81165</span></td><td>다차원 하지 평가</td><td><span class="tag blue">검사료</span></td><td class="price">76,950</td><td>치료기간 중 4회 이내</td></tr>
+<tr><td><span class="code-badge">81156</span></td><td>운전능력 평가</td><td><span class="tag blue">검사료</span></td><td class="price">136,360</td><td>인지, 시지각 및 신체적 평가</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-header">제2절 이학요법료</h3>
+                <div class="table-container">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">81605</span></td><td>어깨 및 상지 집중재활프로그램[30분당]</td><td><span class="tag blue">이학요법료</span></td><td class="price">33,340</td><td>1:1 수기 15분 이상, 12주 이내</td></tr>
+<tr><td><span class="code-badge">81606</span></td><td>수부 집중재활프로그램[30분당]</td><td><span class="tag blue">이학요법료</span></td><td class="price">26,000</td><td>1:1 수기 15분 이상, 12주 이내</td></tr>
+<tr><td><span class="code-badge">81607</span></td><td>허리 집중재활프로그램[30분당]</td><td><span class="tag blue">이학요법료</span></td><td class="price">31,610</td><td>1:1 수기 15분 이상, 12주 이내</td></tr>
+<tr><td><span class="code-badge">81608</span></td><td>하지 집중재활프로그램[30분당]</td><td><span class="tag blue">이학요법료</span></td><td class="price">23,850</td><td>1:1 수기 15분 이상, 12주 이내</td></tr>
+<tr><td><span class="code-badge">81609</span></td><td>상지 절단 집중재활치료[15분당]</td><td><span class="tag blue">이학요법료</span></td><td class="price">19,270</td><td>1:1 전담 10분 이상</td></tr>
+<tr><td><span class="code-badge">81611</span></td><td>하지 절단 집중재활치료[15분당]</td><td><span class="tag blue">이학요법료</span></td><td class="price">13,790</td><td>1:1 전담 15분중 5분 이상</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="background:#F0FDF4; padding:1.2rem; border-radius:8px; border:1px solid #A7F3D0; margin-top:1rem;">
+                    <h4 style="color:#065F46; margin-bottom:0.5rem;">[제3장] 건강보험 요양급여기준 완화 항목 안내</h4>
+                    <ul style="font-size:0.875rem; color:#1E293B; margin-left:1rem; line-height:1.7;">
+                        <li><b>신경학적 검사(F6101):</b> 신경계 질환에 월 1회 산정</li>
+                        <li><b>맛사지치료(MM090):</b> 관절구축, 연부조직유착 개선을 위해 수기로 20분 이상 실시</li>
+                        <li><b>보행치료(MM304):</b> 로봇보조정형용운동장치(A67080.01) 또는 전동식정형용운동장치(A67020.02, 85%적용)를 이용한 보행훈련 적용</li>
+                        <li><b>사회사업상담(MM142):</b> 주 1회, 치료기간 중 최대 3회 이내 산정 가능</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TAB 2: 직장복귀지원 -->
+            <div id="tab-return" class="tab-content2">
+                <h2 style="font-size: 1.3rem; margin-top:1rem; color:var(--primary-dark);">직장복귀지원 요양급여 전체 항목표</h2>
+                
+                <div class="table-container" style="margin-top: 1rem;">
+                    <table class="data-table2">
+                        <thead><tr><th>분류코드</th><th>한글명칭 및 기준</th><th>구분</th><th style="text-align:right;">금액(원)</th><th>비고/지침</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="code-badge">VR0101</span></td><td>기본 직무분석</td><td><span class="tag blue">기본진료료</span></td><td class="price">44,550</td><td>직장복귀가 필요한 산재근로자 제한 파악</td></tr>
+<tr><td><span class="code-badge">VR0102</span></td><td>재활보조기구 교육·상담료</td><td><span class="tag blue">기본진료료</span></td><td class="price">45,180</td><td>30분 이상, 요양중 6회 (최대 10회)</td></tr>
+<tr><td><span class="code-badge">VR0103</span></td><td>작업환경 평가</td><td><span class="tag blue">기본진료료</span></td><td class="price">150,370</td><td>현장평가 2회 이내, 의사 방문시 100% 가산</td></tr>
+<tr><td><span class="code-badge">VR0104</span></td><td>작업환경 개선 현장 지도료</td><td><span class="tag blue">기본진료료</span></td><td class="price">59,330</td><td>1회 실시(필요시 1회 추가), 의사 방문시 100% 가산</td></tr>
+<tr><td><span class="code-badge">VR0105</span></td><td>사업장 방문료(1일당) - 50km 이내</td><td><span class="tag blue">기본진료료</span></td><td class="price">57,330</td><td>2인 이상 방문시 2인부터 50% 가산</td></tr>
+<tr><td><span class="code-badge">VR0106</span></td><td>사업장 방문료(1일당) - 50km 초과 1Km 당</td><td><span class="tag blue">기본진료료</span></td><td class="price">740</td><td>순로에 따른 실제 이동거리 산정</td></tr>
+<tr><td><span class="code-badge">VR0107</span></td><td>집중 상담</td><td><span class="tag blue">기본진료료</span></td><td class="price">45,180</td><td>별도공간 30분 이상 (주 2회, 8주 이내)</td></tr>
+<tr><td><span class="code-badge">VR0201</span></td><td>직업능력 평가</td><td><span class="tag blue">검사료</span></td><td class="price">460,000</td><td>작업치료사 실시, 훈련 전·후 평가 가능</td></tr>
+<tr><td><span class="code-badge">VR0202</span></td><td>기초 심리검사</td><td><span class="tag blue">검사료</span></td><td class="price">38,970</td><td>1회 실시 (필요시 1회 추가 인정)</td></tr>
+<tr><td><span class="code-badge">VR0301</span></td><td>작업능력 강화 훈련 - 신체기능 향상 훈련(30분당)</td><td><span class="tag blue">이학요법료</span></td><td class="price">29,280</td><td>1일 2시간 (최대 4시간), 12주 이내</td></tr>
+<tr><td><span class="code-badge">VR0302</span></td><td>작업능력 강화 훈련 - 모의작업 훈련(30분당)</td><td><span class="tag blue">이학요법료</span></td><td class="price">29,280</td><td>모의작업훈련 50% 이상 구성</td></tr>
+<tr><td><span class="code-badge">VR0401</span></td><td>직업복귀 소견서</td><td><span class="tag blue">확인수수료</span></td><td class="price">100,000</td><td>최대 2회까지 산정</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Section 4: Act Definitions -->
+        <section id="acts" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box">🔍</div>
+                    <div>
+                        <h2>소속병원 요양급여 주요 행위 정의 및 임상 가이드</h2>
+                        <p class="section-desc">의료진 및 환자가 알아야 할 핵심 진료·재활 행위별 실시방법 및 적응증</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-container">
+                
+                <!-- Act 1 -->
+                <div class="accordion-item open" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">91505 / 91509</span>
+                            <span>1. 다학제 재활 통합진료료 & 재활종합계획 평가료</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">적응증/대상</div>
+                            <div class="act-desc">산재환자의 요양결정, 진료계획 수립, 상병상태 평가 및 계속 치료여부 결정, 장해상태·중증요양상태 평가 등이 필요한 환자</div>
+                            
+                            <div class="act-label">팀 구성</div>
+                            <div class="act-desc">재활의학과, 정형외과, 직업환경의학과 등 <b>서로 다른 전문과목 전문의 2인 이상</b> + 진료지원을 전담하는 <b>산재관리간호사</b> (재활종합계획 평가 시 물리치료사, 작업치료사, 사회복지사 등 4인 이상 참여)</div>
+                            
+                            <div class="act-label">실시방법</div>
+                            <div class="act-desc">
+                                <ul style="padding-left:1.2rem; line-height:1.6;">
+                                    <li>의료진과 전문가가 환자를 동시에 대면 진료하고 의견을 모아 진료계획과 재활목표를 공동 수립합니다.</li>
+                                    <li>치료 목표 이행 여부와 재활효과를 정기적으로 재평가하고 진료기록부에 기재 및 서명합니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 2 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">93501 / 93503</span>
+                            <span>2. 사회복귀 지원 계획 & 사회복귀 지원 관리</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">적응증/대상</div>
+                            <div class="act-desc">가정 또는 지역사회로의 복귀 지원이 필요하거나 여건 변화로 계획 변경이 필요한 산재환자(근로자)</div>
+                            
+                            <div class="act-label">실시자</div>
+                            <div class="act-desc">의사, 사회복지사</div>
+                            
+                            <div class="act-label">실시방법</div>
+                            <div class="act-desc">
+                                <ol style="padding-left:1.2rem; line-height:1.6;">
+                                    <li>환자의 주거환경, 의학적 상태, 심리사회적 정보 및 일상생활동작 수행분석 평가 결과를 종합 파악합니다.</li>
+                                    <li>환자 및 가족과 희망 복귀유형을 상담한 후 사회재활 목표와 고려사항을 담은 맞춤형 복귀지원 계획을 수립합니다.</li>
+                                    <li>퇴원환자 지도, 생활현장 방문, 일상생활 보조기구 지원, 주거환경 개선(주택 개조) 컨설팅 등 지역사회 복지 자원과 연계합니다.</li>
+                                    <li>이행 여부 진척도를 관리하고 조치사항을 일정한 서식에 비치합니다.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 3 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">91518 ~ 91542</span>
+                            <span>3. 업무관련성 평가 (직업력조사, 신체·업무부담 요인조사, 소음노출조사)</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">적응증/대상</div>
+                            <div class="act-desc">근골격계 질병, 뇌혈관·심장질병, 소음성 난청, 직업성 암, 정신질병 및 자살 등 업무상 질병 여부 판단과 관련성 평가가 필요한 대상자</div>
+                            
+                            <div class="act-label">실시자</div>
+                            <div class="act-desc">직업환경의학과 전문의, 산업위생관리산업기사, 인간공학기사</div>
+                            
+                            <div class="act-label">실시방법</div>
+                            <div class="act-desc">
+                                <ul style="padding-left:1.2rem; line-height:1.6;">
+                                    <li><b>직업력조사:</b> 과거병력, 근무형태, 직무자율성, 근무기간 및 유해요인 노출력을 상세 조사합니다.</li>
+                                    <li><b>신체부담 요인조사:</b> 목, 어깨, 허리, 무릎 등 부위별 인간공학적 부담 정도와 작업자세를 평가(필요시 사업장 방문/동영상 촬영)합니다.</li>
+                                    <li><b>업무부담 요인조사:</b> 발병 전 1주일 이내 급격한 업무량 변화, 12주간 평균 업무시간, 교대제·야간근로 등 과로 요인을 조사합니다.</li>
+                                    <li><b>소음 노출수준 조사:</b> 소음노출 인정작업 수행기간, 연속음 여부, 방음장비 착용 여부를 평가합니다.</li>
+                                    <li><b>개인적 요인 및 자살사건:</b> 스트레스 가중 요인 범주 확인 및 자살 수단, 유서 유무, 심리부검 결과 등을 기록합니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 4 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">91156 / 91604</span>
+                            <span>4. 운전능력평가 & 운전재활훈련 (Driving Rehabilitation)</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">적응증/대상</div>
+                            <div class="act-desc">뇌손상, 척수손상, 뇌혈관장애, 절단, 골절 등 근골격계 질환 또는 시각적 문제(반맹 등)로 인해 운전능력에 어려움이 있는 환자</div>
+                            
+                            <div class="act-label">평가도구</div>
+                            <div class="act-desc">
+                                <b>기본평가:</b> 근력(MMT), 관절가동범위(ROM), 인지평가(MMSE, MOCA), 시지각주의집중검사(UFO-V, C-PAD)<br>
+                                <b>수행평가:</b> 운전보조장치 적용(핸들조향보조, 브레이크 보조), 장내기능 및 도로주행 시험 수행 기록지
+                            </div>
+                            
+                            <div class="act-label">훈련방법</div>
+                            <div class="act-desc">
+                                <ul style="padding-left:1.2rem; line-height:1.6;">
+                                    <li>실제 운전환경과 유사한 <b>첨단 운전시뮬레이터</b>를 이용하여 1:1로 30분 단위, 1일 최대 2시간 집중 훈련합니다.</li>
+                                    <li>환자 상태에 맞는 가속/브레이크 보조장치 및 핸들 조향장치 적응을 유도하고, 휠체어 차량 이동 및 적재 훈련을 병행합니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 5 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">91605 ~ 91618</span>
+                            <span>5. 부위별 집중재활치료 (어깨·상지, 수부, 척추, 하지, 절단, 휠체어)</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">실시원칙</div>
+                            <div class="act-desc">해당 분야 전담 물리치료사 또는 작업치료사가 <b>1:1로 30분 단위(1일 120분 이내, 12주 이내)</b>로 중점적인 수기치료와 맞춤형 운동을 제공합니다.</div>
+                            
+                            <div class="act-label">부위별 특징</div>
+                            <div class="act-desc">
+                                <ul style="padding-left:1.2rem; line-height:1.6;">
+                                    <li><b>어깨 및 상지/수부 집중재활:</b> 골절, 상완신경총 손상, 압궤손상 등 환자에게 관절가동술, 반흔(흉터)관리, 탈감작·감각자극 훈련, E-link 등 과제지향적 장비 활용 미세동작 훈련을 실시합니다.</li>
+                                    <li><b>척추 집중재활:</b> 추간판탈출증, 척추협착증 환자 등에게 근에너지기법, 관절가동술, 3D 뉴톤/후버(Huber) 등 중심근육 안정화 훈련을 실시합니다.</li>
+                                    <li><b>절단 집중재활 및 의지훈련:</b> 절단부 피부·부종 관리 및 의지 착용 훈련, 수단적 일상생활동작(도구 활용) 훈련을 단계별로 진행합니다.</li>
+                                    <li><b>휠체어/일상생활 집중훈련:</b> 휠체어 지역사회 이동 기술, 일상생활 보조도구 착용 모의/실제 훈련을 중점 실시합니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Act 6 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">VR0101 / VR0301</span>
+                            <span>6. 직무분석 & 작업능력 강화 훈련 (모의작업 훈련)</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">적응증/대상</div>
+                            <div class="act-desc">산재 환자의 직장복귀를 위해 직무 수행의 제한 여부를 파악하고(직무분석), 현장 복귀를 위한 신체·작업 능력 향상이 필요한 경우</div>
+                            
+                            <div class="act-label">인간공학 평가</div>
+                            <div class="act-desc">
+                                노동강도 중등도 이상 시 REBA, RULA, NIOSH 들기 작업지침, OWAS, SI 등 평가 도구를 활용하여 사업장/동영상 기반 정밀 평가 실시
+                            </div>
+                            
+                            <div class="act-label">작업능력 훈련</div>
+                            <div class="act-desc">
+                                <ul style="padding-left:1.2rem; line-height:1.6;">
+                                    <li><b>신체기능 향상 훈련(물리치료사) + 모의작업 훈련(작업치료사)</b>를 병행하되 모의작업을 50% 이상 구성합니다.</li>
+                                    <li>30분 단위로 1일 2~4시간 이내, 최대 12주까지 실시하며 기본 물리치료와 분리하여 중복 적용 가능합니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Act 7 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="code-badge">91302 / 91303</span>
+                            <span>7. 경피적 경막외강 신경성형술 & 음경보형물 삽입술</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="act-grid">
+                            <div class="act-label">신경성형술</div>
+                            <div class="act-desc">
+                                <b>대상:</b> 척추수술 후 통증증후군, 추간판탈출증 등 4주 이상 보존치료 무반응 환자 (1회 산정)<br>
+                                <b>방법:</b> C-Arm 가이드 하에 특수 카테터를 경막외강에 삽입, 고농도 식염수로 유착 부위를 분리 후 스테로이드/마취제 주입
+                            </div>
+                            <div class="act-label" style="background:#F3F4F6; color:#475569;">음경보형물</div>
+                            <div class="act-desc">
+                                <b>대상:</b> 재해일 2년 이내 척수손상/골반신경총 손상으로 인한 난치성 신경인성 방광 및 발기부전 환자<br>
+                                <b>방법:</b> 음경음낭 횡절개 후 백막 내 공간 확보, 실린더 길이 측정 후 굴곡형 보형물(Malleable Prosthesis) 삽입
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <div style="background: linear-gradient(135deg, var(--primary) 0%, #111827 100%); color: white; padding: 3rem 2rem; border-radius: var(--radius-lg); text-align: center; margin-top: 3.5rem; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1);">
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">근로복지공단 재활의학연구센터 임상 프로그램 참여 안내</h2>
+            <p style="font-size: 1.05rem; max-width: 700px; margin: 0 auto 2rem; color: #CBD5E1; line-height:1.7;">산재 근로자의 빠른 치유와 행복한 직장·사회복귀를 위해 공단 소속 전문 의료진과 연구원이 앞장서겠습니다. 요양재활팀 또는 주치의와 상담하여 최적의 급여 혜택과 시범재활 서비스를 받으세요.</p>
+        </div>
+
+    </main>
+
+    <!-- 8. Institutional Footer (공단/연구센터 일반 풋터) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <span style="color:var(--secondary-light);">🏥</span> 근로복지공단 재활의학연구센터
+                </div>
+                <p style="margin-top: 0.8rem; color:#64748B;">※ 본 안내 포털은 고용노동부 고시 및 근로복지공단 「소속병원 요양급여 산정기준」에 근거하여 환자 및 의료진 편의를 위해 운영됩니다.</p>
+            </div>
+            <div class="footer-links">
+                <h4>바로가기 메뉴</h4>
+                <ul>
+                    <li><a href="#guide">요양급여 제도 일반안내</a></li>
+                    <li><a href="#benefits">급여항목 및 수가표 조회</a></li>
+                    <li><a href="#rehab">시범재활 및 직장복귀 기준</a></li>
+                    <li><a href="#acts">주요 임상 행위정의</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>관련 패밀리 사이트</h4>
+                <ul>
+                    <li><a href="https://www.comwel.or.kr" target="_blank">근로복지공단 홈페이지</a></li>
+                    <li><a href="https://www.comwel.or.kr/incheon" target="_blank">근로복지공단 인천병원</a></li>
+                    <li><a href="https://rmrc-home-page.vercel.app/" target="_blank">근로복지공단 인천병원 재활의학연구센터</a></li>
+                    <li><a href="https://www.moel.go.kr" target="_blank">고용노동부 법령안내</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Korea Workers' Compensation & Welfare Service. All rights reserved.</div>
+            <div>
+                <a href="#guide" style="color:#94A3B8; text-decoration:none; margin-right:1rem;">개인정보처리방침</a>
+                <a href="#guide" style="color:#94A3B8; text-decoration:none;">이용약관 및 책임한계</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Top Button -->
+    <button id="topBtn" class="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="페이지 상단으로 이동">
+        ⬆️
+    </button>
+
+    <!-- Vanilla JS for Interactive Elements -->
+    <script>
+        // Tab switching function (Main)
+        function openTab(evt, tabId) {
+            document.querySelectorAll("#benefits .tab-content").forEach(c => c.classList.remove("active"));
+            document.querySelectorAll("#benefits .tab-btn").forEach(b => b.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            filterTables();
+        }
+        
+        // Tab switching function (Rehab Section)
+        function openTab2(evt, tabId) {
+            document.querySelectorAll("#rehab .tab-content2").forEach(c => c.classList.remove("active"));
+            document.querySelectorAll("#rehab .tab-btn2").forEach(b => b.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            filterTables2();
+        }
+
+        // Accordion toggle function
+        function toggleAccordion(element) {
+            element.classList.toggle("open");
+        }
+
+        // Table filtering / search function with result count (Main)
+        function filterTables() {
+            var input, filter, tables, tr, td, i, j, txtValue, found;
+            var totalShown = 0;
+            var totalRows = 0;
+            input = document.getElementById("tableSearch");
+            filter = input.value.toUpperCase();
+            
+            var activeTab = document.querySelector("#benefits .tab-content.active");
+            if (!activeTab) return;
+            tables = activeTab.getElementsByClassName("data-table");
+
+            for (var t = 0; t < tables.length; t++) {
+                tr = tables[t].getElementsByTagName("tr");
+                for (i = 1; i < tr.length; i++) { // Skip header row
+                    totalRows++;
+                    td = tr[i].getElementsByTagName("td");
+                    found = false;
+                    for (j = 0; j < td.length; j++) {
+                        if (td[j]) {
+                            txtValue = td[j].textContent || td[j].innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (found) {
+                        tr[i].style.display = "";
+                        totalShown++;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            
+            var countEl = document.getElementById("searchResultCount");
+            if (filter === "") {
+                countEl.textContent = "전체 " + totalRows + "개 항목 표시 중";
+                countEl.style.color = "var(--text-muted)";
+            } else {
+                countEl.textContent = "검색결과: " + totalShown + "건 (전체 " + totalRows + "건 중)";
+                countEl.style.color = "var(--primary)";
+            }
+        }
+        
+        // Table filtering / search function with result count (Rehab Section)
+        function filterTables2() {
+            var input, filter, tables, tr, td, i, j, txtValue, found;
+            var totalShown = 0;
+            var totalRows = 0;
+            input = document.getElementById("tableSearch2");
+            filter = input.value.toUpperCase();
+            
+            var activeTab = document.querySelector("#rehab .tab-content2.active");
+            if (!activeTab) return;
+            tables = activeTab.getElementsByClassName("data-table2");
+
+            for (var t = 0; t < tables.length; t++) {
+                tr = tables[t].getElementsByTagName("tr");
+                for (i = 1; i < tr.length; i++) { // Skip header row
+                    totalRows++;
+                    td = tr[i].getElementsByTagName("td");
+                    found = false;
+                    for (j = 0; j < td.length; j++) {
+                        if (td[j]) {
+                            txtValue = td[j].textContent || td[j].innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (found) {
+                        tr[i].style.display = "";
+                        totalShown++;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            
+            var countEl = document.getElementById("searchResultCount2");
+            if (filter === "") {
+                countEl.textContent = "전체 " + totalRows + "개 항목 표시 중";
+                countEl.style.color = "var(--text-muted)";
+            } else {
+                countEl.textContent = "검색결과: " + totalShown + "건 (전체 " + totalRows + "건 중)";
+                countEl.style.color = "var(--primary)";
+            }
+        }
+
+        // Show/Hide Top Button on Scroll
+        window.addEventListener('scroll', function() {
+            var topBtn = document.getElementById("topBtn");
+            if (window.pageYOffset > 300) {
+                topBtn.classList.add("show");
+            } else {
+                topBtn.classList.remove("show");
+            }
+        });
+
+        // Initialize table count on load
+        document.addEventListener('DOMContentLoaded', function() {
+            filterTables();
+            filterTables2();
+        });
+    </script>
+</body>
+</html>
