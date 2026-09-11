@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027–2035 연구 마스터플랜 | 근로복지공단 인천병원 재활의학연구센터</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <style>
+        :root {
+            /* RMRC(근로복지공단 인천병원 재활의학연구센터) 홈페이지와 통일된 브랜드 컬러 */
+            --primary: #1d4ed8;       /* RMRC 딥블루 — 홈페이지 포인트 컬러와 동일 */
+            --primary-dark: #0f172a;  /* RMRC 잉크 블랙 — 헤더 및 주요 텍스트 */
+            --secondary: #0D9488;     /* Medical Teal - 재활임상 & 직장복귀 */
+            --accent: #F59E0B;        /* Warm Amber - 주의 및 주요 공지 */
+            --bg-body: #eef2f7;
+            --bg-card: #FFFFFF;
+            --text-main: #0f172a;
+            --text-muted: #374151;
+            --border: #d1d9e0;
+            --border-hover: #b0bac5;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,.08), 0 2px 4px -1px rgba(0,0,0,.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -2px rgba(0,0,0,.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --font-title: 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.65;
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1. Top Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: #fff;
+            padding: .75rem 2rem;
+            font-size: .875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+        .top-bar .inst-name { font-weight: 700; letter-spacing: -.3px; display: flex; align-items: center; gap: 8px; }
+        .top-bar .inst-name span { background: var(--secondary); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: .75rem; }
+        .top-bar .nav-links { display: flex; gap: 1.3rem; align-items: center; flex-wrap: wrap; }
+        .top-bar .nav-links a { color: #cbd5e1; text-decoration: none; font-weight: 600; transition: color .2s; }
+        .top-bar .nav-links a:hover { color: #fff; text-decoration: underline; }
+
+        /* 2. Banner */
+        .sub-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 60%, #0D9488 100%);
+            color: #fff; padding: 3.25rem 2rem 4rem; position: relative; overflow: hidden;
+        }
+        .sub-banner::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1px);
+            background-size: 24px 24px; opacity: .6;
+        }
+        .banner-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: #CBD5E1; margin-bottom: 1rem; flex-wrap: wrap; }
+        .breadcrumb .current { color: #5EEAD4; font-weight: 600; }
+        .sub-banner h1 { font-family: var(--font-title); font-size: 2.3rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .85rem; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+        .sub-banner h1 em { font-style: italic; font-weight: 400; color: #7dd3fc; }
+        .sub-banner p { font-size: 1.02rem; color: #E2E8F0; max-width: 760px; font-weight: 300; line-height: 1.75; }
+        .banner-tags { display: flex; gap: 10px; margin-top: 1.5rem; flex-wrap: wrap; }
+        .banner-tag { background: rgba(255,255,255,.15); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.25); padding: .4rem 1rem; border-radius: 50px; font-size: .83rem; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+
+        .container { max-width: 1200px; margin: -30px auto 4rem; padding: 0 1.5rem; position: relative; z-index: 10; }
+
+        /* 3. Quick nav */
+        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 1.1rem; margin-bottom: 2.5rem; }
+        .quick-card {
+            background: var(--bg-card); padding: 1.35rem 1.5rem; border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md); border: 1px solid var(--border); border-left: 4px solid var(--primary);
+            transition: all .25s cubic-bezier(.4,0,.2,1); cursor: pointer; text-decoration: none; color: inherit; display: block;
+        }
+        .quick-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-hover); }
+        .quick-card.teal { border-left-color: var(--secondary); }
+        .quick-card.amber { border-left-color: var(--accent); }
+        .quick-card.indigo { border-left-color: #6366F1; }
+        .quick-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--primary-dark); margin-bottom: .4rem; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+        .quick-card p { font-size: .84rem; color: var(--text-muted); line-height: 1.55; }
+
+        /* 4. Section layout */
+        .section { background: var(--bg-card); border-radius: var(--radius-lg); padding: 2.25rem 2.25rem 2.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+        .section-header { margin-bottom: 1.75rem; border-bottom: 2px solid var(--border); padding-bottom: 1rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+        .section-title { display: flex; align-items: center; gap: 10px; }
+        .section-title .icon-box { width: 34px; height: 34px; background: #EFF6FF; color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .section-title h2 { font-size: 1.55rem; font-weight: 700; color: var(--primary-dark); letter-spacing: -.4px; font-family: var(--font-title); }
+        .section-title h2 em { font-style: italic; font-weight: 400; color: var(--primary); opacity: .92; }
+        .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .section-eyebrow::before { content: attr(data-num); font-family: var(--font-title); font-size: 13px; font-style: italic; font-weight: 400; color: var(--text-muted); text-transform: none; letter-spacing: 0; }
+        .section-desc { color: var(--text-muted); font-size: .88rem; margin-top: 4px; }
+        .lead { font-size: .98rem; color: var(--text-main); line-height: 1.85; margin-bottom: 1.5rem; }
+
+        /* 인용/강조 문단 — 세련된 세리프 풀쿼트 */
+        .pull-quote { border-left: 3px solid var(--primary); padding: .2rem 0 .2rem 1.5rem; margin: 0 0 1.85rem; }
+        .pull-quote p { font-family: var(--font-title); font-size: 1.08rem; font-style: italic; font-weight: 400; color: var(--text-main); line-height: 1.8; letter-spacing: -.01em; }
+        .pull-quote p em { font-style: italic; color: var(--primary); font-weight: 600; }
+        .pull-quote .sub { margin-top: .6rem; font-family: var(--font-body); font-style: normal; font-size: .84rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* Callout */
+        .callout-box { background: linear-gradient(to right,#F0FDF4,#EFF6FF); border: 1px solid #A7F3D0; border-left: 6px solid var(--secondary); padding: 1.4rem 1.5rem; border-radius: var(--radius-md); margin: 1.5rem 0; display: flex; gap: 1.1rem; align-items: flex-start; }
+        .callout-box .icon { font-size: 1.6rem; background: #fff; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); flex-shrink: 0; }
+        .callout-box h4 { color: #065F46; font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+        .callout-box p { font-size: .89rem; color: var(--text-main); line-height: 1.65; margin-bottom: .5rem; }
+        .callout-box .caveat { font-size: .81rem; color: #7c5c00; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 6px; padding: .5rem .75rem; margin-top: .4rem; }
+        .stat-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: .9rem 0; }
+        .stat-chip { background: #fff; border: 1px solid #A7F3D0; border-radius: 10px; padding: .6rem 1rem; min-width: 130px; }
+        .stat-chip .num { font-size: 1.15rem; font-weight: 800; color: #047857; }
+        .stat-chip .lab { font-size: .74rem; color: var(--text-muted); margin-top: 2px; }
+
+        /* Timeline / step grid */
+        .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 1.1rem; margin: 1.25rem 0; }
+        .step-card { background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.3rem; transition: border-color .2s; }
+        .step-card:hover { border-color: var(--primary); }
+        .step-num { display: inline-block; background: var(--primary); color: #fff; font-weight: 800; font-size: .72rem; padding: 2px 10px; border-radius: 50px; margin-bottom: .6rem; }
+        .step-card h4 { font-size: .98rem; font-weight: 700; color: var(--primary-dark); margin-bottom: .4rem; }
+        .step-card p { font-size: .83rem; color: var(--text-muted); line-height: 1.55; }
+
+        /* Domain mini-cards */
+        .domain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; margin-bottom: 1.75rem; }
+        .domain-card { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.1rem 1.25rem; background: #F8FAFC; }
+        .domain-card .tag-row { display:flex; gap:6px; margin-bottom:.5rem; flex-wrap:wrap; }
+        .domain-card h4 { font-size: .95rem; font-weight: 700; color: var(--primary-dark); margin-bottom: .3rem; }
+        .domain-card p { font-size: .82rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* Tags/badges */
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 50px; font-size: .72rem; font-weight: 700; letter-spacing: -.2px; white-space: nowrap; }
+        .tag.blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .tag.teal { background: #F0FDF4; color: #047857; border: 1px solid #A7F3D0; }
+        .tag.amber { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
+        .tag.purple { background: #FAF5FF; color: #6B21A8; border: 1px solid #E9D5FF; }
+        .tag.gray { background: #F1F5F9; color: #475569; border: 1px solid #E2E8F0; }
+        .code-badge { font-family: 'SFMono-Regular', Consolas, monospace; background: #F1F5F9; color: #0F172A; padding: 3px 9px; border-radius: 6px; font-weight: 800; font-size: .78rem; border: 1px solid #E2E8F0; white-space: nowrap; }
+
+        /* Accordion — 6대 계획과제 */
+        .accordion-item { border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: .8rem; overflow: hidden; background: #fff; transition: border-color .2s; }
+        .accordion-item:hover { border-color: var(--border-hover); }
+        .accordion-header { padding: 1.1rem 1.3rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: #F8FAFC; transition: background .2s; }
+        .accordion-header:hover { background: #F1F5F9; }
+        .accordion-header .title-wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .accordion-header .p-code { font-family: 'SFMono-Regular',Consolas,monospace; font-weight: 800; color: #fff; background: var(--primary); border-radius: 6px; padding: 3px 10px; font-size: .82rem; flex-shrink:0; }
+        .accordion-header strong { font-size: .98rem; color: var(--primary-dark); }
+        .accordion-header .arrow { font-size: .8rem; color: var(--text-muted); transition: transform .25s ease; flex-shrink:0; }
+        .accordion-item.open .accordion-header .arrow { transform: rotate(180deg); }
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height .3s ease-out, padding .3s ease; padding: 0 1.3rem; }
+        .accordion-item.open .accordion-body { padding: 1.1rem 1.3rem 1.4rem; max-height: 900px; border-top: 1px solid var(--border); }
+        .accordion-body .q { font-size: .92rem; color: var(--text-main); font-weight: 600; line-height: 1.6; margin-bottom: .9rem; padding: .7rem .9rem; background: #EFF6FF; border-radius: 8px; border-left: 3px solid var(--primary); }
+        .accordion-body .desc { font-size: .87rem; color: var(--text-muted); line-height: 1.7; margin-bottom: .9rem; }
+        .kv-row { display: grid; grid-template-columns: 92px 1fr; gap: .6rem; font-size: .84rem; margin-bottom: .55rem; align-items: baseline; }
+        .kv-row .k { font-weight: 700; color: var(--primary); }
+        .kv-row .v { color: var(--text-main); line-height: 1.6; }
+        .kv-row .v.muted { color: var(--text-muted); }
+        .not-do { font-size: .8rem; color: #92400E; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: .6rem .8rem; margin-top: .6rem; }
+
+        /* Table (patient pathway) */
+        .table-container { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border); background: #fff; margin: 1.25rem 0; }
+
+        /* SVG 다이어그램 컨테이너 */
+        .diagram-box { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border); background: #F8FAFC; padding: 1.5rem 1rem; margin: 1.25rem 0; }
+        .diagram-box svg { display: block; margin: 0 auto; min-width: 560px; max-width: 640px; width: 100%; height: auto; }
+        .diagram-box svg text { font-family: 'Pretendard Variable','Pretendard',-apple-system,sans-serif; }
+        table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+        th { background: #F8FAFC; color: var(--primary-dark); font-weight: 700; text-align: left; padding: .8rem .9rem; border-bottom: 2px solid var(--border); white-space: nowrap; }
+        td { padding: .8rem .9rem; border-bottom: 1px solid var(--border); color: var(--text-main); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #F8FAFC; }
+
+        /* Role cards */
+        .role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.1rem; margin: 1.25rem 0; }
+        .role-card { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.3rem; background: #F8FAFC; }
+        .role-card .num { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--primary); color:#fff; font-size:.75rem; font-weight:800; margin-bottom:.6rem; }
+        .role-card h4 { font-size: .98rem; font-weight: 700; color: var(--primary-dark); margin-bottom: .6rem; }
+        .role-card ul { padding-left: 1.1rem; font-size: .82rem; color: var(--text-muted); line-height: 1.75; }
+
+        /* CTA */
+        .cta-box { background: linear-gradient(135deg, var(--primary) 0%, #111827 100%); color: #fff; padding: 2.5rem 2rem; border-radius: var(--radius-lg); text-align: center; margin-top: 1rem; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,.1); }
+        .cta-box h2 { font-size: 1.45rem; font-weight: 800; margin-bottom: .8rem; }
+        .cta-box p { font-size: .95rem; max-width: 640px; margin: 0 auto 1.5rem; color: #CBD5E1; line-height: 1.7; }
+        .cta-box a.btn-cta { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--primary-dark); font-weight: 700; padding: .8rem 1.6rem; border-radius: 8px; text-decoration: none; font-size: .9rem; transition: all .2s; }
+        .cta-box a.btn-cta:hover { background: #e2e8f0; }
+
+        .note-box { background: #F1F5F9; padding: 1rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: .84rem; color: var(--text-muted); line-height: 1.7; margin-top: 1rem; }
+
+        /* Footer */
+        footer { background: var(--primary-dark); color: #94A3B8; padding: 3.25rem 2rem 2.25rem; font-size: .875rem; border-top: 4px solid var(--primary); }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; }
+        .footer-logo { color: #fff; font-weight: 800; font-size: 1.15rem; margin-bottom: .7rem; display: flex; align-items: center; gap: 8px; }
+        .footer-info p { font-size: .84rem; line-height: 1.6; color: #64748B; margin-top: .7rem; }
+        .footer-links h4 { color: #fff; font-size: .92rem; font-weight: 700; margin-bottom: .9rem; border-bottom: 1px solid #334155; padding-bottom: .5rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: .55rem; }
+        .footer-links a { color: #CBD5E1; text-decoration: none; font-size: .84rem; transition: color .2s; }
+        .footer-links a:hover { color: #fff; text-decoration: underline; }
+        .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.4rem; border-top: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .8rem; }
+
+        .btn-top { position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px; background: var(--primary); color: #fff; border: none; border-radius: 50%; box-shadow: var(--shadow-lg); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all .2s; z-index: 999; opacity: 0; visibility: hidden; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+        .btn-top:hover { transform: translateY(-3px); }
+
+        @media (max-width: 900px) {
+            .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
+            .top-bar .nav-links { display: none; }
+            .kv-row { grid-template-columns: 1fr; gap: .2rem; }
+        }
+        @media (max-width: 600px) {
+            .sub-banner h1 { font-size: 1.5rem; }
+            .section { padding: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Bar -->
+    <div class="top-bar">
+        <div class="inst-name"><span>공공기관</span> 근로복지공단 인천병원 재활의학연구센터</div>
+        <div class="nav-links">
+            <a href="https://rmrc-home-page.vercel.app/" style="display:flex;align-items:center;gap:4px;"><i class="ti ti-arrow-left" aria-hidden="true"></i> RMRC 홈페이지</a>
+            <a href="#background">연구전환 배경</a>
+            <a href="#portfolio">연구 포트폴리오</a>
+            <a href="#pathway">환자경로</a>
+            <a href="#roadmap">실행 로드맵</a>
+            <a href="#collaboration">공동연구 안내</a>
+        </div>
+    </div>
+
+    <!-- 2. Banner -->
+    <section class="sub-banner">
+        <div class="banner-content">
+            <nav class="breadcrumb">
+                <span>연구·사업</span><span>❯</span><span class="current">2027–2035 연구 마스터플랜</span>
+            </nav>
+            <h1>
+                2027–2035 <em>연구 마스터플랜</em>
+                <span style="font-family:var(--font-body);font-size:.8rem;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:8px;font-weight:600;align-self:center;">연구기획안</span>
+            </h1>
+            <p>소속 의료기관에서 산재 시범재활프로그램을 기획·운영하고, 센터가 임상효과와 적용 가능성을 연구해 온 경험을 바탕으로, 2027년부터 환자의 전체 경로에서 작동하는 산재 의료재활 전달체계를 연구합니다. 여섯 계획과제는 환자 평가부터 병원 운영·지역 전달까지 잇습니다.</p>
+            <div class="banner-tags">
+                <div class="banner-tag"><i class="ti ti-calendar" aria-hidden="true"></i> 계획기간 2027–2035</div>
+                <div class="banner-tag"><i class="ti ti-file-text" aria-hidden="true"></i> 문서상태 · 연구기획안</div>
+                <div class="banner-tag"><i class="ti ti-list-numbers" aria-hidden="true"></i> 6대 계획과제 (P01~P06)</div>
+                <div class="banner-tag"><i class="ti ti-clock" aria-hidden="true"></i> 최종 개정 2026.09.02</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <!-- 3. Quick nav -->
+        <div class="quick-grid">
+            <a href="#background" class="quick-card">
+                <h3>연구전환 배경 <i class="ti ti-arrow-narrow-right" aria-hidden="true"></i></h3>
+                <p>2012~2025년 산재 시범재활프로그램 연구가 2027년 전달체계 연구로 전환되는 흐름과 핵심 근거</p>
+            </a>
+            <a href="#portfolio" class="quick-card teal">
+                <h3>연구 포트폴리오 <i class="ti ti-arrow-narrow-right" aria-hidden="true"></i></h3>
+                <p>4대 연구분야와 6대 계획과제(P01~P06)의 핵심 질문 · 예정 산출물</p>
+            </a>
+            <a href="#pathway" class="quick-card amber">
+                <h3>환자경로 연구 <i class="ti ti-arrow-narrow-right" aria-hidden="true"></i></h3>
+                <p>급성기 치료부터 장기 추적까지, 요양시기별로 연결되는 연구 기준</p>
+            </a>
+            <a href="#roadmap" class="quick-card indigo">
+                <h3>실행 로드맵 <i class="ti ti-arrow-narrow-right" aria-hidden="true"></i></h3>
+                <p>2027 → 2028–2030 → 2031–2035, 3단계 전환 계획과 정책학습 순환</p>
+            </a>
+        </div>
+
+        <!-- 4. 연구전환 배경 -->
+        <section id="background" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box"><i class="ti ti-route" aria-hidden="true"></i></div>
+                    <div>
+                        <div class="section-eyebrow" data-num="01">연구전환 배경 · TRANSITION</div>
+                        <h2>개발에서, <em>운영으로</em></h2>
+                        <p class="section-desc">2012~2025년 축적한 연구 경험이 2027년 검증과제로 전환되는 과정</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="lead">소속 의료기관에서 산재 시범재활프로그램을 기획·운영하고, 센터가 임상효과와 적용 가능성을 연구해 온 경험을 바탕으로 2027년부터 환자의 전체 경로에서 작동하는 산재 의료재활 전달체계를 연구합니다. 정책 출발점(미충족 서비스 보완)에서 시작해 프로그램 개발, 임상효과 연구를 거쳐, 이제는 기관 운영과 산재보험 영향까지 살피는 정책평가로 지평을 넓힙니다.</p>
+
+            <div class="step-grid">
+                <div class="step-card">
+                    <span class="step-num">2012</span>
+                    <h4>정책·서비스 배경</h4>
+                    <p>재활인증 프로그램 — 중추신경계 환자의 급성기 치료 이후 초기 회복기 집중재활을 운영했습니다.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">2015–2017</span>
+                    <h4>설계·개발</h4>
+                    <p>전후평가·재활치료·팀평가회의를 결합해 근골격계 집중재활과 복귀지원프로그램을 설계했습니다.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">2018–2021</span>
+                    <h4>운영·효과연구</h4>
+                    <p>재활인증의료기관으로 확대하고, 운영실태·타당성과 프로그램별 임상효과를 연구했습니다.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">2022–2025</span>
+                    <h4>복귀·데이터 확장</h4>
+                    <p>직장복귀지원의료기관 체계로 확장하고, 다차원 평가자료·의료재활 데이터 연구를 이어갔습니다.</p>
+                </div>
+                <div class="step-card" style="border-color:var(--primary);background:#EFF6FF;">
+                    <span class="step-num" style="background:var(--secondary);">2026 전환</span>
+                    <h4>임상효과 연구 → 전달체계 연구</h4>
+                    <p>2025년까지의 임상·데이터 연구를 바탕으로 기관 운영과 산재보험 영향을 살필 2027 계획과제를 기획합니다.</p>
+                </div>
+            </div>
+
+            <div class="callout-box">
+                <div class="icon">📊</div>
+                <div style="flex:1;">
+                    <h4>공동연구 근거 · 서울대학교병원 (2024년 최종보고서)</h4>
+                    <p>서울대학교병원이 수행해 근로복지공단에 제출한 2024년 최종보고서는 소속병원 요양급여 근골격계 집중재활프로그램의 임상자료와 2017–2023년 노동보험 자료를 함께 분석했습니다.</p>
+                    <div class="stat-row">
+                        <div class="stat-chip"><div class="num">8,094명</div><div class="lab">집중재활 임상분석 대상</div></div>
+                        <div class="stat-chip"><div class="num">5,938명 × 2</div><div class="lab">직업복귀 1:1 매칭 비교군</div></div>
+                        <div class="stat-chip"><div class="num">OR 1.10</div><div class="lab">적용군의 직업복귀 연관성</div></div>
+                        <div class="stat-chip"><div class="num">95% CI 1.02–1.19</div><div class="lab">신뢰구간</div></div>
+                    </div>
+                    <p style="margin-top:.3rem;">성별·연령·소득·외상중증도·종사자 지위 등이 유사한 집단을 비교했을 때 시범재활수가 적용군에서 직업복귀 오즈가 더 높게 관찰됐으며, 일부 중증·고용취약 하위집단에서도 양의 연관성이 보고됐습니다.</p>
+                    <div class="caveat"><i class="ti ti-alert-triangle" aria-hidden="true"></i> 비무작위 관찰자료에서 확인된 연관성입니다. 프로그램이 직업복귀율을 10% 높였거나 인과효과가 입증됐다는 뜻은 아닙니다. (연구기관: 서울대학교병원 · 최종보고서 2024.12)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 연구 포트폴리오 -->
+        <section id="portfolio" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box"><i class="ti ti-layout-grid" aria-hidden="true"></i></div>
+                    <div>
+                        <div class="section-eyebrow" data-num="02">연구 포트폴리오 · PORTFOLIO</div>
+                        <h2>4대 분야, <em>여섯 개의 질문</em></h2>
+                        <p class="section-desc">환자 평가, 공통 데이터, 병원 운영과 지역 전달체계를 하나의 연구경로로 연결합니다</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="lead">이 마스터플랜은 연구영역을 임상, 의료정보, 정책, 의료기기·보조기기 임상중개의 네 축으로 정리하고, 각 축의 과제를 발전단계에 따라 연결합니다. 항목을 클릭하면 각 과제의 대상·설계·예정 산출물을 확인할 수 있습니다.</p>
+
+            <div class="diagram-box">
+                <svg viewBox="0 0 660 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="P03 의료정보 데이터베이스를 중심으로 P01, P02, P04, P05가 인프라 과제로 연결되고 P06이 현장 실증 과제로 연결되는 연구 포트폴리오 구조도">
+                    <defs>
+                        <marker id="hubArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#C7D0D9"></path>
+                        </marker>
+                    </defs>
+
+                    <circle cx="330" cy="225" r="130" fill="none" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 5"></circle>
+
+                    <line x1="330.0" y1="189.0" x2="330.0" y2="121.0" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#hubArrow)"></line>
+                    <line x1="364.2" y1="213.9" x2="428.9" y2="192.8" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#hubArrow)"></line>
+                    <line x1="351.2" y1="254.1" x2="391.1" y2="309.2" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#hubArrow)"></line>
+                    <line x1="308.8" y1="254.1" x2="268.9" y2="309.2" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#hubArrow)"></line>
+                    <line x1="295.8" y1="213.9" x2="231.1" y2="192.8" stroke="#3355D8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#hubArrow)"></line>
+
+                    <!-- 중심: P03 -->
+                    <circle cx="330" cy="225" r="36" fill="#0E8C7F"></circle>
+                    <text x="330" y="221" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">P03</text>
+                    <text x="330" y="237" text-anchor="middle" font-size="10" fill="#e0fdf9">공통 데이터</text>
+
+                    <!-- P01 -->
+                    <circle cx="330.0" cy="95.0" r="26" fill="#3355D8"></circle>
+                    <text x="330.0" y="99.5" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">P01</text>
+                    <text x="330.0" y="57" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">임상기능평가</text>
+
+                    <!-- P02 -->
+                    <circle cx="453.6" cy="184.8" r="26" fill="#7C3AED"></circle>
+                    <text x="453.6" y="189.3" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">P02</text>
+                    <text x="487.6" y="175" text-anchor="start" font-size="11" font-weight="700" fill="#0f172a">보조기기</text>
+                    <text x="487.6" y="189" text-anchor="start" font-size="11" font-weight="700" fill="#0f172a">임상중개</text>
+
+                    <!-- P04 -->
+                    <circle cx="406.4" cy="330.2" r="26" fill="#C2740B"></circle>
+                    <text x="406.4" y="334.7" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">P04</text>
+                    <text x="406.4" y="376" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">재활센터 운영</text>
+
+                    <!-- P05 -->
+                    <circle cx="253.6" cy="330.2" r="26" fill="#C2740B"></circle>
+                    <text x="253.6" y="334.7" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">P05</text>
+                    <text x="253.6" y="376" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">지역 전달체계</text>
+
+                    <!-- P06: 실증 과제(점선 강조) -->
+                    <circle cx="206.4" cy="184.8" r="26" fill="#fff" stroke="#3355D8" stroke-width="2.5" stroke-dasharray="4 3"></circle>
+                    <text x="206.4" y="189.3" text-anchor="middle" font-size="13" font-weight="800" fill="#3355D8">P06</text>
+                    <text x="172.4" y="175" text-anchor="end" font-size="11" font-weight="700" fill="#0f172a">택배 직군</text>
+                    <text x="172.4" y="189" text-anchor="end" font-size="11" font-weight="700" fill="#0f172a">실증 사례</text>
+
+                    <!-- 범례 -->
+                    <circle cx="200" cy="410" r="6" fill="#94A3B8"></circle>
+                    <text x="212" y="414" font-size="11" fill="#64748B">인프라 과제 (공통 기준·데이터)</text>
+                    <circle cx="430" cy="410" r="6" fill="#fff" stroke="#3355D8" stroke-width="2" stroke-dasharray="3 2"></circle>
+                    <text x="442" y="414" font-size="11" fill="#64748B">현장 실증 과제</text>
+                </svg>
+            </div>
+
+            <div class="domain-grid">
+                <div class="domain-card">
+                    <div class="tag-row"><span class="tag blue">임상연구</span></div>
+                    <h4>기능과 중재효과를 측정 · P01 · P06</h4>
+                    <p>기능, 보조기기, 작업능력과 직장복귀를 환자 단위에서 측정하고 검증합니다.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="tag-row"><span class="tag teal">의료정보연구</span></div>
+                    <h4>자료정의·품질·재현성을 관리 · P03</h4>
+                    <p>각 연구에서 생긴 자료를 같은 언어와 품질기준으로 연결해 반복 검증할 수 있게 합니다.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="tag-row"><span class="tag amber">정책연구</span></div>
+                    <h4>병원 운영과 전달체계를 검증 · P04 · P05</h4>
+                    <p>환자복잡도에 맞는 조직·인력·시설과, 기관 간 연결방식을 함께 연구합니다.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="tag-row"><span class="tag purple">의료기기·보조기기 임상중개</span></div>
+                    <h4>안전성·사용성·효과를 전주기로 평가 · P02</h4>
+                    <p>특수·희소 보조기기의 선정부터 시험사용, 적합, 훈련, 추적까지 검증합니다.</p>
+                </div>
+            </div>
+
+            <div class="pull-quote">
+                <p>P01~P05가 여러 기관이 함께 쓸 공통의 언어를 만든다면, <em>P06은 그 언어가 현장에서 실제로 통하는지 확인하는 첫 시험대</em>입니다 — 택배 직군이라는 구체적인 현장에서, 직장복귀라는 눈에 보이는 결과로.</p>
+                <p class="sub">여섯 과제는 P01 → P02 → … → P06으로 이어지고, 다음 직군으로 계속 확장될 수 있는 열린 구조를 이룹니다.</p>
+            </div>
+
+            <div class="accordion-container">
+
+                <div class="accordion-item open" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="p-code">P01</span>
+                            <strong>임상기능연구평가실 구축 및 운영모델 실증</strong>
+                            <span class="tag blue">임상연구</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="q">기능·활동·참여를 안전하고 재현 가능하게 측정해 임상 의사결정에 활용할 수 있는가?</div>
+                        <p class="desc">여러 진료과와 연구에서 환자의 기능을 같은 기준으로 측정하고 결과를 다시 진료에 돌려주는 공통 평가모형을 실증합니다.</p>
+                        <div class="kv-row"><span class="k">대상·범위</span><span class="v muted">공통 기능평가가 필요한 산재환자와 평가·회신 업무절차</span></div>
+                        <div class="kv-row"><span class="k">연구설계</span><span class="v muted">반복측정, 평가자 일치도와 현장 실행가능성 검증</span></div>
+                        <div class="kv-row"><span class="k">예정 산출물</span><span class="v">공통 최소 기능평가 · 표준업무 흐름 · 구조화 결과지 · 품질관리 기준 · 확대 검증안</span></div>
+                        <div class="kv-row"><span class="k">연결 과제</span><span class="v"><span class="tag gray">P02</span> <span class="tag gray">P03</span> <span class="tag gray">P04</span> <span class="tag gray">P05</span> <span class="tag gray">P06</span></span></div>
+                        <div class="not-do"><i class="ti ti-x" aria-hidden="true"></i> 검사를 많이 늘리거나 고가장비를 도입하는 사업이 아니며, 한 번의 평가로 급여·장해·고용이나 직장복귀를 결정하지 않습니다.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="p-code">P02</span>
+                            <strong>특수·희소 보조기기 사례관리 및 임상중개연구</strong>
+                            <span class="tag purple">보조기기 임상중개</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="q">누구에게 어떤 기기를 시험하고 성공·보완·전환을 어떤 근거로 판단할 것인가?</div>
+                        <p class="desc">특수하거나 고가인 보조기기를 대상선정부터 시험사용, 적합, 훈련, 추적과 유지관리까지 하나의 임상경로로 검증합니다.</p>
+                        <div class="kv-row"><span class="k">대상·범위</span><span class="v muted">특수·희소 보조기기의 시험사용과 적합·훈련·추적이 필요한 사례</span></div>
+                        <div class="kv-row"><span class="k">연구설계</span><span class="v muted">전향적 사례군 관찰과 전주기 사례관리 평가</span></div>
+                        <div class="kv-row"><span class="k">예정 산출물</span><span class="v">사례선정·중단 기준 · 다학제 심의서 · 시험사용·훈련·추적 경로 · 성과·자원 자료 · 보급 판단자료</span></div>
+                        <div class="kv-row"><span class="k">연결 과제</span><span class="v"><span class="tag gray">P01</span> <span class="tag gray">P03</span> <span class="tag gray">P04</span> <span class="tag gray">P05</span> <span class="tag gray">P06</span></span></div>
+                        <div class="not-do"><i class="ti ti-x" aria-hidden="true"></i> 특정 제품을 홍보하거나 구입을 권하는 연구가 아니며, 안전과 지원조건을 확인하지 않은 채 기기를 바로 보급하지 않습니다.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="p-code">P03</span>
+                            <strong>산재 의료·사회·직업재활 의료정보 데이터베이스 구축</strong>
+                            <span class="tag teal">의료정보연구</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="q">어떤 자료를 어떤 품질·법적 조건으로 연결해야 연구결과를 재현하고 확장할 수 있는가?</div>
+                        <p class="desc">의료·사회·직업재활 자료를 공통 정의와 품질규칙으로 연결해 같은 질문을 다시 검증할 수 있는 연구기반을 만듭니다. P01·P02·P04·P05·P06의 결과를 다음 연구로 이어지는 공통 자산으로 바꾸는 허브 역할을 합니다.</p>
+                        <div class="kv-row"><span class="k">대상·범위</span><span class="v muted">의료·사회·직업재활 연구자료와 승인·품질·반출 절차</span></div>
+                        <div class="kv-row"><span class="k">연구설계</span><span class="v muted">자료자산 감사, 공통 자료모형 설계와 재현분석 시험</span></div>
+                        <div class="kv-row"><span class="k">예정 산출물</span><span class="v">자료자산 지도 · 공통 자료모형·자료사전 · 품질·권한·반출 절차 · 변경이력 · 재현분석 사례</span></div>
+                        <div class="kv-row"><span class="k">연결 과제</span><span class="v"><span class="tag gray">P01</span> <span class="tag gray">P02</span> <span class="tag gray">P04</span> <span class="tag gray">P05</span> <span class="tag gray">P06</span></span></div>
+                        <div class="not-do"><i class="ti ti-x" aria-hidden="true"></i> 모든 자료를 한곳에 모으거나 승인 없이 개인을 찾아내는 사업이 아니며, 연구결과를 급여·보상·고용의 단독 판단에 사용하지 않습니다.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="p-code">P04</span>
+                            <strong>산재 소속의료기관 재활전문센터 및 외래재활센터 발전 및 적정운영 방안</strong>
+                            <span class="tag amber">정책연구</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="q">어떤 환자를 어떤 센터가 어느 정도의 인력과 자원으로 담당해야 하는가?</div>
+                        <p class="desc">환자복잡도, 업무량, 인력·시설과 성과를 함께 분석해 재활센터 유형별 역할과 적정 운영모형을 제시합니다.</p>
+                        <div class="kv-row"><span class="k">대상·범위</span><span class="v muted">재활전문센터·외래재활센터의 환자군, 업무, 자원과 성과</span></div>
+                        <div class="kv-row"><span class="k">연구설계</span><span class="v muted">기관 비교, 업무량·자원소요와 환자복잡도 보정 분석</span></div>
+                        <div class="kv-row"><span class="k">예정 산출물</span><span class="v">센터 유형·역할모형 · 적정 인력·자원 산정도구 · 균형성과지표 · 운영·제도개선 대안</span></div>
+                        <div class="kv-row"><span class="k">연결 과제</span><span class="v"><span class="tag gray">P01</span> <span class="tag gray">P03</span> <span class="tag gray">P05</span></span></div>
+                        <div class="not-do"><i class="ti ti-x" aria-hidden="true"></i> 기관 순위를 매기거나 직원 개인을 평가하는 연구가 아니며, 연구결과만으로 인력·시설·보상체계를 즉시 바꾸지 않습니다.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="p-code">P05</span>
+                            <strong>서울·경인지역 산재 외상 의료재활전달체계 구축</strong>
+                            <span class="tag amber">정책연구</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="q">어떤 환자를 언제 어느 기관으로 연결하고 누가 조정과 결과회신을 책임질 것인가?</div>
+                        <p class="desc">급성기 치료 뒤 적절한 전문재활과 외래·직업재활로 이어지도록 실제 환자흐름과 병목을 분석해 의뢰·전원·회송 기준을 설계합니다.</p>
+                        <div class="kv-row"><span class="k">대상·범위</span><span class="v muted">서울·경인 외상환자의 급성기 이후 전문재활·복귀지원 경로</span></div>
+                        <div class="kv-row"><span class="k">연구설계</span><span class="v muted">환자흐름·사건시점과 기관 네트워크 분석, 기록 기반 모의적용</span></div>
+                        <div class="kv-row"><span class="k">예정 산출물</span><span class="v">진료권·환자흐름 지도 · 선별·전원·회송 기준 · 최소 전달정보 · 권역 조정모형 · 후속 시범안</span></div>
+                        <div class="kv-row"><span class="k">연결 과제</span><span class="v"><span class="tag gray">P03</span> <span class="tag gray">P04</span> <span class="tag gray">P06</span></span></div>
+                        <div class="not-do"><i class="ti ti-x" aria-hidden="true"></i> 2027년에 실제 환자의 전원이나 치료결정을 자동으로 바꾸는 사업이 아니며, 기관을 성과순으로 평가하지 않습니다.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="title-wrap">
+                            <span class="p-code">P06</span>
+                            <strong>택배 직군 산재근로자 작업능력평가의 임상적용 타당화 및 직장복귀 활용모형 개발</strong>
+                            <span class="tag blue">임상연구·직업재활</span>
+                        </div>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="q">평가가 산재근로자에게 안전하고 신뢰할 수 있으며 실제 복귀계획에 유용한가?</div>
+                        <p class="desc">작업능력평가 결과를 실제 직무요구와 비교해 산재근로자의 안전한 직무조정과 단계적 직장복귀에 활용할 수 있는지 검증합니다. P01~P05가 만드는 공통 평가·데이터·운영기준을 택배 직군이라는 구체적 현장에 적용해, 그 기준이 실제로 작동하고 직장복귀 성과로 이어지는지 확인하는 첫 실증 사례입니다.</p>
+                        <div class="kv-row"><span class="k">대상·범위</span><span class="v muted">택배 직군 산재근로자의 작업능력, 직무요구와 복귀결과</span></div>
+                        <div class="kv-row"><span class="k">연구설계</span><span class="v muted">전향적 임상타당화, 반복측정과 직장복귀 종단추적</span></div>
+                        <div class="kv-row"><span class="k">예정 산출물</span><span class="v">임상 평가절차 · 안전중단 기준 · 신뢰도·측정오차 근거 · 구조화 결과지 · 직무조정·복귀 권고모형</span></div>
+                        <div class="kv-row"><span class="k">연결 과제</span><span class="v"><span class="tag gray">P01</span> <span class="tag gray">P02</span> <span class="tag gray">P03</span> <span class="tag gray">P05</span></span></div>
+                        <div class="not-do"><i class="ti ti-x" aria-hidden="true"></i> 평가점수 하나로 고용·급여·장해·보상이나 복귀 가능 여부를 결정하거나 보장하는 연구가 아닙니다.</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. 환자경로 -->
+        <section id="pathway" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box"><i class="ti ti-timeline" aria-hidden="true"></i></div>
+                    <div>
+                        <div class="section-eyebrow" data-num="03">환자경로 연구 · PATHWAY</div>
+                        <h2>치료에서, <em>장기 추적까지</em></h2>
+                        <p class="section-desc">요양시기별로 필요한 서비스와 다음 단계로 이어질 정보, 센터가 연구할 기준을 연결합니다</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="lead">환자가 기관을 옮겨도 연구질문과 정보는 이어져야 합니다. 치료부터 복귀와 장기 추적까지 환자경로를 연구하고, 기관이 달라도 이어지는 정보와 기준을 설계합니다.</p>
+
+            <div class="diagram-box">
+                <svg viewBox="0 0 1000 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="급성기 치료에서 전문·집중재활, 직업·사회복귀 준비를 거쳐 유지·장기 추적으로 이어지는 환자경로 흐름도">
+                    <defs>
+                        <marker id="pathArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#C7D0D9"></path>
+                        </marker>
+                    </defs>
+                    <line x1="162" y1="65" x2="358" y2="65" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#pathArrow)"></line>
+                    <line x1="422" y1="65" x2="618" y2="65" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#pathArrow)"></line>
+                    <line x1="682" y1="65" x2="878" y2="65" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#pathArrow)"></line>
+
+                    <circle cx="130" cy="65" r="32" fill="#3355D8"></circle>
+                    <text x="130" y="71" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">1</text>
+                    <text x="130" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">급성기 치료</text>
+                    <text x="130" y="146" text-anchor="middle" font-size="11" fill="#64748B">급성기 진료환경</text>
+
+                    <circle cx="390" cy="65" r="32" fill="#2C63C7"></circle>
+                    <text x="390" y="71" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">2</text>
+                    <text x="390" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">전문·집중재활</text>
+                    <text x="390" y="146" text-anchor="middle" font-size="11" fill="#64748B">재활 전문 진료환경</text>
+
+                    <circle cx="650" cy="65" r="32" fill="#1D8CA6"></circle>
+                    <text x="650" y="71" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">3</text>
+                    <text x="650" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">직업·사회복귀 준비</text>
+                    <text x="650" y="146" text-anchor="middle" font-size="11" fill="#64748B">복귀지원·작업평가 환경</text>
+
+                    <circle cx="910" cy="65" r="32" fill="#0E8C7F"></circle>
+                    <text x="910" y="71" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">4</text>
+                    <text x="910" y="126" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">유지·장기 추적</text>
+                    <text x="910" y="146" text-anchor="middle" font-size="11" fill="#64748B">외래·지역 진료환경</text>
+                </svg>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>요양시기</th><th>주요 서비스</th><th>이어질 정보</th><th>센터가 연구할 기준</th><th>연결 계획과제</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>① 급성기 치료</strong><br><span style="font-size:.78rem;color:var(--text-muted);">급성기 진료환경</span></td>
+                            <td>수술·초기치료와 기본재활</td>
+                            <td>손상·수술 정보와 조기 기능상태</td>
+                            <td>전문재활 필요도를 가려내는 기준</td>
+                            <td><span class="tag gray">P01</span> <span class="tag gray">P05</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>② 전문·집중재활</strong><br><span style="font-size:.78rem;color:var(--text-muted);">재활 전문 진료환경</span></td>
+                            <td>전문·집중재활과 보조기기 적합·훈련</td>
+                            <td>공통 기능평가와 치료·보조기기 기록</td>
+                            <td>환자복잡도에 맞는 강도와 자원</td>
+                            <td><span class="tag gray">P01</span> <span class="tag gray">P02</span> <span class="tag gray">P04</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>③ 직업·사회복귀 준비</strong><br><span style="font-size:.78rem;color:var(--text-muted);">복귀지원·작업평가 환경</span></td>
+                            <td>일상생활·작업능력 평가와 복귀지원</td>
+                            <td>작업능력, 직무요구와 조정 권고</td>
+                            <td>임상결과를 실제 복귀계획에 쓰는 절차</td>
+                            <td><span class="tag gray">P05</span> <span class="tag gray">P06</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>④ 유지·장기 추적</strong><br><span style="font-size:.78rem;color:var(--text-muted);">외래·지역 진료환경</span></td>
+                            <td>외래재활·합병증 관리와 장기 추적</td>
+                            <td>기능·참여·복귀 결과와 문제사건</td>
+                            <td>장기 결과를 다음 진료기준에 반영하는 방식</td>
+                            <td><span class="tag gray">P03</span> <span class="tag gray">P05</span> <span class="tag gray">P06</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 7. 실행 로드맵 -->
+        <section id="roadmap" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box"><i class="ti ti-map-2" aria-hidden="true"></i></div>
+                    <div>
+                        <div class="section-eyebrow" data-num="04">실행 로드맵 · ROADMAP</div>
+                        <h2>연구가, <em>기준이 되도록</em></h2>
+                        <p class="section-desc">연결기반에서 다기관 검증을 거쳐 지속학습으로 이어지는 3단계 전환 계획</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+                <div class="step-card" style="border-left:4px solid var(--primary);">
+                    <span class="step-num">2027</span>
+                    <h4>전환을 본격화하는 해</h4>
+                    <p style="margin-bottom:.6rem;"><strong>무엇을 할지</strong> — 6개 연구를 통해 공통 평가, 데이터, 병원 운영과 지역 전달체계를 한 포트폴리오로 묶습니다.</p>
+                    <p style="margin-bottom:.6rem;"><strong>무엇이 남을지</strong> — 공통 측정·자료기반, 외부 공동연구 구조, 운영·전달체계 실증 설계</p>
+                    <p style="color:var(--text-muted);font-size:.8rem;"><strong>다음 단계 조건</strong> — 공통 측정·자료정의와 공동연구 실행안을 갖추고 다음 검증단계로 이동</p>
+                </div>
+                <div class="step-card" style="border-left:4px solid var(--secondary);">
+                    <span class="step-num" style="background:var(--secondary);">2028–2030</span>
+                    <h4>검증과 표준화</h4>
+                    <p style="margin-bottom:.6rem;"><strong>무엇을 할지</strong> — 상병별 종단 코호트, 다기관 임상중개, 요양급여 운영효과와 전달체계 연구를 확대해 표준과 질지표를 정교화합니다.</p>
+                    <p style="margin-bottom:.6rem;"><strong>무엇이 남을지</strong> — 상병별 종단 코호트, 다기관 검증과 매뉴얼, 기관 유형·질·전달기준</p>
+                    <p style="color:var(--text-muted);font-size:.8rem;"><strong>다음 단계 조건</strong> — 여러 진료환경에서 재현성·안전성·적용가능성을 확인해 지속학습 기반으로 확장</p>
+                </div>
+                <div class="step-card" style="border-left:4px solid var(--primary-dark);background:#0f172a;color:#fff;">
+                    <span class="step-num" style="background:var(--accent);">2031–2035</span>
+                    <h4 style="color:#fff;">학습하는 의료재활 체계</h4>
+                    <p style="margin-bottom:.6rem;color:#CBD5E1;"><strong style="color:#fff;">무엇을 할지</strong> — 진료와 복귀 결과가 지속적으로 축적·분석되어 환자맞춤 경로, 기관 역할, 보상과 품질정책을 갱신하는 국가 산재 의료재활 연구 허브를 지향합니다.</p>
+                    <p style="margin-bottom:.6rem;color:#CBD5E1;"><strong style="color:#fff;">무엇이 남을지</strong> — 지속학습 데이터망, 개인맞춤 재활경로, 근거 기반 보상·품질정책</p>
+                    <p style="color:#94A3B8;font-size:.8rem;"><strong style="color:#CBD5E1;">다음 단계 조건</strong> — 정기 평가결과를 다음 연구질문과 의료재활 운영 개선에 다시 반영</p>
+                </div>
+            </div>
+
+            <h3 style="margin:2rem 0 1rem;color:var(--primary-dark);font-size:1.1rem;">9단계 의료재활 정책학습 순환 <span style="font-size:.8rem;font-weight:500;color:var(--text-muted);">— 로드맵에서 정책 운영으로</span></h3>
+            <p class="lead" style="margin-bottom:1rem;">연구개발부터 정책평가까지 아홉 단계의 연구와 평가를 연결하고, 각 단계의 판단에 필요한 근거를 만듭니다. 축적된 결과는 다음 연구와 의료재활 운영 개선으로 환류합니다.</p>
+            <div class="diagram-box">
+                <svg viewBox="-20 -20 660 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="연구개발에서 정기 정책평가까지 아홉 단계가 순환하며 1단계로 다시 환류되는 정책학습 순환 다이어그램">
+                    <defs>
+                        <marker id="cycleArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#C7D0D9"></path>
+                        </marker>
+                        <marker id="cycleArrowBack" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#3355D8"></path>
+                        </marker>
+                    </defs>
+
+                    <circle cx="300" cy="260" r="160" fill="none" stroke="#EEF2F6" stroke-width="1"></circle>
+
+                    <line x1="322.6" y1="108.2" x2="380.3" y2="129.2" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="414.8" y1="158.2" x2="445.6" y2="211.4" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="453.4" y1="255.9" x2="442.7" y2="316.4" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="420.2" y1="355.4" x2="373.1" y2="394.9" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="330.7" y1="410.4" x2="269.3" y2="410.4" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="226.9" y1="394.9" x2="179.8" y2="355.4" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="157.3" y1="316.4" x2="146.6" y2="255.9" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+                    <line x1="154.4" y1="211.4" x2="185.2" y2="158.2" stroke="#C7D0D9" stroke-width="1.4" marker-end="url(#cycleArrow)"></line>
+
+                    <line x1="219.7" y1="129.2" x2="277.4" y2="108.2" stroke="#3355D8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#cycleArrowBack)"></line>
+                    <text x="248.5" y="103" text-anchor="middle" font-size="10.5" font-weight="700" fill="#3355D8">환류</text>
+
+                    <!-- 1 -->
+                    <circle cx="300.0" cy="100.0" r="24" fill="#3355D8"></circle>
+                    <text x="300.0" y="106" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">1</text>
+                    <text x="300.0" y="38" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">연구개발</text>
+
+                    <!-- 2 -->
+                    <circle cx="402.8" cy="137.4" r="24" fill="#3355D8"></circle>
+                    <text x="402.8" y="143.4" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">2</text>
+                    <text x="438.8" y="91" text-anchor="start" font-size="12" font-weight="600" fill="#334155">예비항목 운영</text>
+
+                    <!-- 3 -->
+                    <circle cx="457.6" cy="232.2" r="24" fill="#3355D8"></circle>
+                    <text x="457.6" y="238.2" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">3</text>
+                    <text x="512.7" y="226" text-anchor="start" font-size="12" font-weight="600" fill="#334155">임상효과 평가</text>
+
+                    <!-- 4 -->
+                    <circle cx="438.6" cy="340.0" r="24" fill="#0E8C7F"></circle>
+                    <text x="438.6" y="346" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">4</text>
+                    <text x="487.1" y="372" text-anchor="start" font-size="12" font-weight="600" fill="#334155">급여 편입</text>
+
+                    <!-- 5 -->
+                    <circle cx="354.7" cy="410.4" r="24" fill="#0E8C7F"></circle>
+                    <text x="354.7" y="416.4" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">5</text>
+                    <text x="373.9" y="467" text-anchor="start" font-size="12" font-weight="600" fill="#334155">교육·질관리</text>
+
+                    <!-- 6 -->
+                    <circle cx="245.3" cy="410.4" r="24" fill="#0E8C7F"></circle>
+                    <text x="245.3" y="416.4" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">6</text>
+                    <text x="226.1" y="467" text-anchor="end" font-size="12" font-weight="600" fill="#334155">시범정책 확대</text>
+
+                    <!-- 7 -->
+                    <circle cx="161.4" cy="340.0" r="24" fill="#C2740B"></circle>
+                    <text x="161.4" y="346" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">7</text>
+                    <text x="112.9" y="372" text-anchor="end" font-size="12" font-weight="600" fill="#334155">비용·효과성 평가</text>
+
+                    <!-- 8 -->
+                    <circle cx="142.4" cy="232.2" r="24" fill="#C2740B"></circle>
+                    <text x="142.4" y="238.2" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">8</text>
+                    <text x="87.3" y="226" text-anchor="end" font-size="12" font-weight="600" fill="#334155">요양급여 적용</text>
+
+                    <!-- 9 -->
+                    <circle cx="197.2" cy="137.4" r="24" fill="#C2740B"></circle>
+                    <text x="197.2" y="143.4" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">9</text>
+                    <text x="161.2" y="91" text-anchor="end" font-size="12" font-weight="600" fill="#334155">정기 정책평가</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 8. 공동연구 안내 -->
+        <section id="collaboration" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="icon-box"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+                    <div>
+                        <div class="section-eyebrow" data-num="05">공동연구 안내 · COLLABORATION</div>
+                        <h2>함께, <em>검증하는 연구</em></h2>
+                        <p class="section-desc">현장의 질문을 함께 연구하고, 여러 환경에서 검증합니다</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="lead">재활의학연구센터는 외부 연구·의료기관과 해결할 질문을 함께 정하고, 공통 측정과 자료기준으로 결과의 재현성과 적용범위를 넓히는 공동연구를 지향합니다. 참여하는 기관의 진료환경과 책임을 존중하면서 연구설계부터 결과 해석과 환류까지 함께 준비합니다.</p>
+
+            <div class="role-grid">
+                <div class="role-card">
+                    <span class="num">1</span>
+                    <h4>재활의학연구센터</h4>
+                    <ul>
+                        <li>현장 연구질문 수집</li>
+                        <li>공동 연구설계와 공통 측정</li>
+                        <li>다기관 검증 조정</li>
+                        <li>근거 해석과 환류</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <span class="num">2</span>
+                    <h4>의료기관</h4>
+                    <ul>
+                        <li>환자경로와 진료환경 공유</li>
+                        <li>실행가능성과 안전성 검토</li>
+                        <li>공통 측정 수행</li>
+                        <li>결과의 공동 해석</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <span class="num">3</span>
+                    <h4>공단·정책기관</h4>
+                    <ul>
+                        <li>운영·정책 연구질문 제시</li>
+                        <li>적용환경과 판단조건 검토</li>
+                        <li>연구결과의 활용 가능성 평가</li>
+                        <li>다음 정책평가 질문 제안</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin:1.75rem 0 1rem;color:var(--primary-dark);font-size:1.05rem;">참여절차 5단계</h3>
+            <div class="step-grid">
+                <div class="step-card"><span class="step-num">01</span><h4>공동질문 정의</h4><p>각 기관이 해결하려는 환자·진료·운영 문제와 공동연구의 범위를 맞춥니다.</p></div>
+                <div class="step-card"><span class="step-num">02</span><h4>수행환경 검토</h4><p>대상 환자, 진료흐름, 현장부담과 필요한 연구지원 조건을 함께 살핍니다.</p></div>
+                <div class="step-card"><span class="step-num">03</span><h4>역할·측정 합의</h4><p>연구설계, 공통 평가, 자료정의와 기관별 역할을 공동 프로토콜로 정리합니다.</p></div>
+                <div class="step-card"><span class="step-num">04</span><h4>검증·품질관리</h4><p>같은 기준으로 연구를 수행하고 자료품질·안전·재현성을 함께 확인합니다.</p></div>
+                <div class="step-card"><span class="step-num">05</span><h4>결과 해석·환류</h4><p>결과의 의미와 적용범위를 공동으로 해석해 진료·운영과 다음 연구질문에 반영합니다.</p></div>
+            </div>
+
+            <div class="note-box">
+                <strong>협력원칙 4가지</strong> — 현장부담(진료흐름을 존중하고 꼭 필요한 항목부터 시작) · 데이터 책임(기관의 자료관리 책임과 승인조건 준수) · 분석 책임(재현 가능한 방법으로 분석하고 함께 해석) · 성과공유(합의한 기여와 권리범위에 따라 참여기관에 결과 환류)
+            </div>
+
+            <div class="cta-box">
+                <h2>공동연구·협력 문의</h2>
+                <p>재활의학, 물리치료, 보조공학, 산재재활 분야의 공동연구 제안은 언제든 환영합니다. 연구 목적, 연구자 소속, 협력 내용을 간략히 기술하여 보내주시면 검토 후 회신드립니다.</p>
+                <a href="mailto:obok05@comwel.or.kr" class="btn-cta"><i class="ti ti-mail" aria-hidden="true"></i> obok05@comwel.or.kr 로 문의하기</a>
+            </div>
+        </section>
+
+        <div class="note-box" style="text-align:center;">
+            본 페이지는 2027–2035 연구 마스터플랜(연구기획안)의 핵심 내용을 요약한 페이지입니다. 공통 평가·자료기준은 과제별 연구설계와 참여기관 협의를 거쳐 구체화되며, 다기관 검증과 정책 활용은 별도의 참여·승인·검토 절차를 전제로 합니다. 전체 원문 자료가 필요하시면 위 이메일로 문의해 주세요.
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo"><span style="color:#5EEAD4;"><i class="ti ti-building-hospital" aria-hidden="true"></i></span> 재활의학연구센터</div>
+                <p>Rehabilitation Medical Research Center<br>근로복지공단 인천병원<br>산재 노동자의 기능 회복과 사회 복귀를 위한 근거 중심의 재활 연구를 수행합니다.</p>
+                <p>📞 032-500-0185 &nbsp; ✉️ obok05@comwel.or.kr</p>
+            </div>
+            <div class="footer-links">
+                <h4>이 페이지 바로가기</h4>
+                <ul>
+                    <li><a href="#background">연구전환 배경</a></li>
+                    <li><a href="#portfolio">연구 포트폴리오 (P01~P06)</a></li>
+                    <li><a href="#pathway">환자경로 연구</a></li>
+                    <li><a href="#roadmap">실행 로드맵</a></li>
+                    <li><a href="#collaboration">공동연구 안내</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>관련 사이트</h4>
+                <ul>
+                    <li><a href="https://rmrc-home-page.vercel.app/" target="_blank">RMRC 홈페이지</a></li>
+                    <li><a href="https://www.comwel.or.kr" target="_blank">근로복지공단</a></li>
+                    <li><a href="https://www.moel.go.kr" target="_blank">고용노동부</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 재활의학연구센터, 근로복지공단 인천병원. All rights reserved.</div>
+            <div>Rehabilitation Medical Research Center · COMWEL Incheon Hospital</div>
+        </div>
+    </footer>
+
+    <button id="topBtn" class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로"><i class="ti ti-arrow-up" aria-hidden="true"></i></button>
+
+    <script>
+        function toggleAccordion(el) { el.classList.toggle('open'); }
+        window.addEventListener('scroll', function () {
+            var btn = document.getElementById('topBtn');
+            if (window.pageYOffset > 300) btn.classList.add('show'); else btn.classList.remove('show');
+        });
+    </script>
+</body>
+</html>
