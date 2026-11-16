@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>산재 의료재활 심포지엄 | 근로복지공단 인천병원 재활의학연구센터</title>
+  <meta name="description" content="근로복지공단 인천병원 재활의학연구센터 산재 의료재활 심포지엄의 개요, 프로그램, 자료집, 언론보도를 연도별로 제공합니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    :root {
+      --navy: #1a2b4a;          /* RMRC 메인 딥블루 */
+      --ink: #0f172a;
+      --blue: #1d4ed8;
+      --blue-light: #dbeafe;
+      --sky: #93c5fd;
+      --bg: #eef2f7;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #374151;
+      --light: #6b7280;
+      --border: #d1d9e0;
+      --radius: 14px;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,.08), 0 2px 4px -1px rgba(0,0,0,.04);
+      --shadow-lg: 0 14px 30px -8px rgba(15,23,42,.18);
+      --serif: 'Playfair Display', Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body { font-family: 'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.65; word-break: keep-all; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+
+    /* ── 상단 바 ── */
+    .top-bar { position: sticky; top: 0; z-index: 1000; background: var(--ink); color: #fff; padding: .8rem 2rem;
+      display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; border-bottom: 3px solid var(--blue); }
+    .top-bar .inst { font-weight: 700; font-size: .9rem; letter-spacing: -.3px; }
+    .top-bar .inst small { font-family: var(--serif); font-weight: 400; color: var(--sky); margin-left: 6px; letter-spacing: .05em; }
+    .top-bar nav { display: flex; gap: 1.3rem; flex-wrap: wrap; font-size: .87rem; }
+    .top-bar nav a { color: #cbd5e1; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+    .top-bar nav a:hover { color: #fff; }
+
+    /* ── 배너 ── */
+    .banner { background: linear-gradient(135deg, var(--ink) 0%, var(--navy) 45%, var(--blue) 100%); color: #fff;
+      padding: 3.6rem 2rem 5rem; position: relative; overflow: hidden; }
+    .banner::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.09) 1px, transparent 1px);
+      background-size: 24px 24px; }
+    .banner::after { content: ''; position: absolute; right: -120px; bottom: -160px; width: 460px; height: 460px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(147,197,253,.25), transparent 70%); }
+    .banner-in { max-width: 1160px; margin: 0 auto; position: relative; z-index: 2; }
+    .crumb { font-size: .82rem; color: #cbd5e1; margin-bottom: 1rem; display: flex; gap: 8px; flex-wrap: wrap; }
+    .crumb a { text-decoration: none; } .crumb a:hover { color: #fff; }
+    .crumb .cur { color: var(--sky); font-weight: 600; }
+    .banner .eyebrow { font-family: var(--serif); font-style: italic; color: var(--sky); font-size: 1.05rem; margin-bottom: .4rem; }
+    .banner h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -.035em; line-height: 1.25; margin-bottom: 1rem; }
+    .banner p { max-width: 720px; color: #e2e8f0; font-size: 1rem; font-weight: 300; line-height: 1.8; }
+    .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
+    .tag { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.24); backdrop-filter: blur(6px);
+      padding: .38rem 1rem; border-radius: 50px; font-size: .82rem; display: inline-flex; align-items: center; gap: 6px; }
+
+    .wrap { max-width: 1160px; margin: -34px auto 4rem; padding: 0 1.5rem; position: relative; z-index: 10; }
+
+    /* ── 회차 타임라인 ── */
+    .series { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
+    .series-label { font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; color: var(--blue); text-transform: uppercase; margin-right: .4rem; }
+    .series-track { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; flex: 1; }
+    .ed { display: inline-flex; align-items: center; gap: .55rem; padding: .55rem 1rem; border-radius: 10px; text-decoration: none;
+      border: 1px solid var(--border); font-size: .88rem; transition: all .2s; }
+    .ed b { font-family: var(--serif); font-size: 1.05rem; }
+    .ed small { color: var(--light); font-size: .76rem; }
+    .ed.done { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .ed.done small { color: #cbd5e1; }
+    .ed.done:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .ed.next { border-style: dashed; color: var(--light); }
+    .ed-line { width: 28px; height: 2px; background: var(--border); }
+
+    /* ── 섹션 공통 ── */
+    .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+    .sec-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 2px; color: var(--blue); text-transform: uppercase; }
+    .sec-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.3; }
+    .sec-title em { font-family: var(--serif); font-weight: 400; color: var(--blue); }
+
+    /* ── 회차 블록 ── */
+    .edition { margin-bottom: 3.2rem; }
+    .ed-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--ink) 100%); color: #fff; border-radius: 18px;
+      overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; box-shadow: var(--shadow-lg); }
+    .ed-info { padding: 2.2rem 2.2rem 2rem; display: flex; flex-direction: column; gap: .9rem; }
+    .ed-badge { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; font-size: .74rem; font-weight: 700; letter-spacing: 1px;
+      background: rgba(255,255,255,.13); color: #bfdbfe; padding: .3rem .8rem; border-radius: 20px; }
+    .ed-info h3 { font-size: 1.85rem; font-weight: 800; line-height: 1.3; letter-spacing: -.03em; }
+    .ed-theme { font-family: var(--serif); font-style: italic; color: var(--sky); font-size: 1.02rem; margin-top: -.3rem; }
+    .ed-facts { display: grid; grid-template-columns: auto 1fr; gap: .45rem 1rem; font-size: .9rem; margin-top: .4rem; }
+    .ed-facts dt { color: var(--sky); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .ed-facts dd { color: #e2e8f0; }
+    .ed-summary { font-size: .9rem; color: #cbd5e1; line-height: 1.8; border-top: 1px solid rgba(255,255,255,.12); padding-top: .9rem; }
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1.4fr 1fr; gap: 6px; padding: 6px; min-height: 420px; }
+    .ph { position: relative; overflow: hidden; border-radius: 10px; cursor: zoom-in; margin: 0; background: #0b1220; }
+    .ph.lg { grid-column: 1 / -1; }
+    .ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s; }
+    .ph:hover img { transform: scale(1.04); }
+    .ph figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 12px 9px; font-size: .78rem; font-weight: 600;
+      background: linear-gradient(transparent, rgba(2,6,23,.78)); }
+
+    .ed-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.4rem; margin-top: 1.4rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.6rem 1.7rem; }
+    .card h4 { font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; }
+    .card h4 i { color: var(--blue); font-size: 1.2rem; }
+
+    /* 프로그램 표 */
+    .prog { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .prog td { padding: .7rem .5rem; border-bottom: 1px solid #e5e9ef; vertical-align: top; }
+    .prog tr:last-child td { border-bottom: none; }
+    .prog .t { font-family: var(--serif); font-weight: 600; color: var(--blue); white-space: nowrap; width: 62px; }
+    .prog .k { font-size: .7rem; font-weight: 700; letter-spacing: .5px; color: var(--blue); background: var(--blue-light);
+      padding: 2px 8px; border-radius: 12px; display: inline-block; margin-bottom: 4px; }
+    .prog .ttl { font-weight: 700; line-height: 1.5; }
+    .prog .who { color: var(--light); font-size: .8rem; margin-top: 2px; }
+    .prog tr.sub td { color: var(--light); font-size: .82rem; padding: .45rem .5rem; }
+    .panel-list { list-style: none; margin-top: .5rem; display: flex; flex-direction: column; gap: .35rem; }
+    .panel-list li { font-size: .8rem; color: var(--muted); padding-left: .9rem; position: relative; }
+    .panel-list li::before { content: ''; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); }
+    .panel-list b { color: var(--text); }
+
+    /* 주요 내용 */
+    .findings { list-style: none; display: flex; flex-direction: column; gap: .9rem; }
+    .findings li { display: flex; gap: .8rem; font-size: .9rem; line-height: 1.7; color: var(--muted); }
+    .findings .fk { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .3px; color: var(--blue); margin-bottom: 2px; }
+    .findings li i { flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px; background: var(--blue-light); color: var(--blue);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+
+    /* 자료집 다운로드 */
+    .book { display: grid; grid-template-columns: 150px 1fr; gap: 1.3rem; align-items: start; }
+    .book-cover { width: 150px; border-radius: 6px; box-shadow: 0 10px 24px -6px rgba(15,23,42,.35); display: block; }
+    .book h5 { font-size: 1rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.45; }
+    .book .meta { font-size: .8rem; color: var(--light); margin: .2rem 0 .8rem; }
+    .toc { list-style: none; font-size: .8rem; color: var(--muted); display: flex; flex-direction: column; gap: .25rem; margin-bottom: 1rem; }
+    .toc li { display: flex; justify-content: space-between; gap: .8rem; border-bottom: 1px dotted #d6dce3; padding-bottom: .2rem; }
+    .toc li span:last-child { color: var(--light); font-variant-numeric: tabular-nums; }
+    .btns { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: .6rem 1.1rem; border-radius: 9px; font-size: .85rem; font-weight: 700;
+      text-decoration: none; transition: all .2s; }
+    .btn.primary { background: var(--navy); color: #fff; } .btn.primary:hover { background: var(--blue); }
+    .btn.ghost { border: 1px solid var(--border); color: var(--text); background: #fff; } .btn.ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* 패널 토론문 */
+    .h4-sub { font-size: .75rem; font-weight: 600; color: var(--light); margin-left: 4px; }
+    .papers { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .paper { display: flex; gap: .9rem; align-items: flex-start; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: 12px;
+      text-decoration: none; background: #fff; transition: all .2s; }
+    .paper:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .paper-no { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: var(--blue); line-height: 1; padding-top: 2px; }
+    .paper-body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+    .paper-body b { font-size: .9rem; line-height: 1.5; letter-spacing: -.01em; }
+    .paper-who { font-size: .78rem; color: var(--muted); font-weight: 600; }
+    .paper-gist { font-size: .78rem; color: var(--light); line-height: 1.6; margin-top: 2px; }
+    .paper-meta { font-size: .72rem; font-weight: 700; color: var(--blue); white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; padding-top: 3px; }
+    .papers-note { font-size: .76rem; color: var(--light); margin-top: .9rem; }
+
+    /* 언론보도 */
+    .press { display: flex; flex-direction: column; gap: .6rem; }
+    .press a { display: flex; align-items: center; gap: .8rem; padding: .8rem 1rem; border: 1px solid var(--border); border-radius: 10px;
+      text-decoration: none; transition: all .2s; background: #fff; }
+    .press a:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .press .src { font-size: .72rem; font-weight: 700; color: var(--blue); background: var(--blue-light); padding: 3px 9px; border-radius: 12px; white-space: nowrap; }
+    .press .hl { font-size: .87rem; font-weight: 600; flex: 1; line-height: 1.5; }
+    .press i { color: var(--light); }
+
+    /* 연도별 자료실 */
+    .archive { width: 100%; border-collapse: collapse; background: var(--card); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--border); font-size: .9rem; }
+    .archive th { background: var(--navy); color: #fff; font-weight: 600; font-size: .8rem; letter-spacing: .5px; text-align: left; padding: .85rem 1.1rem; }
+    .archive td { padding: .95rem 1.1rem; border-bottom: 1px solid #e5e9ef; vertical-align: middle; }
+    .archive tr:last-child td { border-bottom: none; }
+    .archive .yr { font-family: var(--serif); font-weight: 700; font-size: 1.05rem; color: var(--navy); }
+    .archive .muted { color: var(--light); }
+    .archive a.dl { color: var(--blue); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+    .archive a.dl:hover { text-decoration: underline; }
+
+    .contact { margin-top: 2.6rem; background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--blue);
+      border-radius: var(--radius); padding: 1.3rem 1.6rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; box-shadow: var(--shadow); }
+    .contact p { font-size: .9rem; color: var(--muted); }
+    .contact b { color: var(--text); }
+
+    footer { background: var(--ink); color: #94a3b8; text-align: center; padding: 2rem 1rem; font-size: .8rem; }
+    footer a { color: #cbd5e1; }
+
+    /* 사진 확대 */
+    .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(2,6,23,.93); display: none; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px; padding: 24px; cursor: zoom-out; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(1300px, 95vw); max-height: 84vh; border-radius: 8px; }
+    .lightbox p { color: #e2e8f0; font-size: .9rem; }
+
+    @media (max-width: 960px) {
+      .ed-hero, .ed-grid { grid-template-columns: 1fr; }
+      .gallery { min-height: 360px; }
+    }
+    @media (max-width: 640px) {
+      .top-bar { padding: .7rem 1rem; } .top-bar nav { gap: .9rem; font-size: .8rem; }
+      .banner { padding: 2.6rem 1.2rem 4.2rem; } .banner h1 { font-size: 1.75rem; }
+      .wrap { padding: 0 1rem; }
+      .ed-info { padding: 1.6rem 1.3rem; } .ed-info h3 { font-size: 1.45rem; }
+      .gallery { min-height: 280px; }
+      .card { padding: 1.3rem 1.2rem; }
+      .book { grid-template-columns: 1fr; } .book-cover { width: 130px; }
+      .papers { grid-template-columns: 1fr; } .paper-meta { display: none; }
+      .archive th:nth-child(3), .archive td:nth-child(3) { display: none; }
+      .ed-line { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 바 -->
+  <header class="top-bar">
+    <div class="inst">근로복지공단 인천병원 재활의학연구센터<small>RMRC</small></div>
+    <nav>
+      <a href="index.html"><i class="ti ti-arrow-left" aria-hidden="true"></i> RMRC 홈페이지</a>
+      <a href="#about">심포지엄 소개</a>
+      <a href="#y2026">2026 제1회</a>
+      <a href="#archive">연도별 자료실</a>
+    </nav>
+  </header>
+
+  <!-- 배너 -->
+  <section class="banner" id="about">
+    <div class="banner-in">
+      <div class="crumb"><a href="index.html">홈</a><span>❯</span><span>소통 · 행사</span><span>❯</span><span class="cur">산재 의료재활 심포지엄</span></div>
+      <div class="eyebrow">RMRC Symposium</div>
+      <h1>산재 의료재활 심포지엄</h1>
+      <p>재활의학연구센터는 산재 의료재활 심포지엄을 엽니다. 산재 전문재활의 연구 성과를 공유하고, 산재노동자가 알맞은 시기에 알맞은 병원에서 재활을 받아 일터로 돌아갈 수 있도록 정책·의료기관·연구자가 함께 논의하는 자리입니다. 회차별 프로그램과 자료집, 현장 사진, 언론 보도를 이 페이지에 모아 둡니다.</p>
+      <div class="tags">
+        <span class="tag"><i class="ti ti-presentation" aria-hidden="true"></i> 연구발표 + 패널토론</span>
+        <span class="tag"><i class="ti ti-book-download" aria-hidden="true"></i> 자료집 · 토론문 공개</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+
+    <!-- 회차 타임라인: 새 회차가 열리면 .ed.next를 .ed.done으로 바꾸고 다음 회차를 추가하세요 -->
+    <div class="series" aria-label="심포지엄 회차">
+      <span class="series-label">Series</span>
+      <div class="series-track">
+        <a class="ed done" href="#y2026"><b>2026</b> 제1회 <small>11. 13.</small></a>
+        <span class="ed-line" aria-hidden="true"></span>
+        <span class="ed next"><b>2027</b> 제2회 <small>개최 예정</small></span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2026 · 제1회 산재 의료재활 심포지엄
+         (다음 해에는 이 <section class="edition"> 블록을 복사해 위쪽에 붙이고,
+          id·내용·파일 경로(symposium/2027/…)만 바꾸면 됩니다)
+    ============================================================= -->
+    <section class="edition" id="y2026">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">2026 · 1st Symposium</div>
+          <h2 class="sec-title">제1회 <em>산재 의료재활 심포지엄</em></h2>
+        </div>
+      </div>
+
+      <div class="ed-hero">
+        <div class="ed-info">
+          <span class="ed-badge"><i class="ti ti-circle-check" aria-hidden="true"></i> 성료</span>
+          <h3>산재 의료재활의 오늘,<br>그리고 내일을 함께 그리다</h3>
+          <dl class="ed-facts">
+            <dt><i class="ti ti-calendar-event" aria-hidden="true"></i>일시</dt><dd>2026. 11. 13.(금) 10:00–12:20</dd>
+            <dt><i class="ti ti-map-pin" aria-hidden="true"></i>장소</dt><dd>서울역 직업능력심사평가원 B101호 (서울시티타워 지하 1층)</dd>
+            <dt><i class="ti ti-users" aria-hidden="true"></i>참석</dt><dd>현장 30여 명 + Zoom 온라인 참여</dd>
+            <dt><i class="ti ti-building" aria-hidden="true"></i>주최</dt><dd>근로복지공단 인천병원 재활의학연구센터</dd>
+          </dl>
+          <p class="ed-summary">고용노동부 산재보상정책과, 공단 본부, 근로복지연구원, 외부 전문가가 함께했습니다. 조준 인천병원장이 개회사를, 이재갑 수원대학교 석좌교수(전 고용노동부 장관)가 축사를 맡았습니다. 연구발표 3편과 패널토론으로 산재 전문재활의 근거와 의료기관 간 연계 방안을 논의했습니다.</p>
+        </div>
+        <div class="gallery">
+          <figure class="ph lg" data-cap="제1회 산재 의료재활 심포지엄 참석자 단체사진">
+            <img src="symposium/2026/photo-group.jpg" alt="제1회 산재 의료재활 심포지엄 참석자 단체사진">
+            <figcaption>참석자 단체사진</figcaption>
+          </figure>
+          <figure class="ph" data-cap="연구발표 — 김진홍 재활의학연구센터 책임연구원">
+            <img src="symposium/2026/photo-talk.jpg" alt="연구발표 세션" loading="lazy">
+            <figcaption>연구발표</figcaption>
+          </figure>
+          <figure class="ph" data-cap="패널토론 — 좌장 주영수 강원대학교병원 교수">
+            <img src="symposium/2026/photo-panel.jpg" alt="패널토론 세션" loading="lazy">
+            <figcaption>패널토론</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="ed-grid">
+        <!-- 프로그램 -->
+        <div class="card">
+          <h4><i class="ti ti-list-details" aria-hidden="true"></i>프로그램</h4>
+          <table class="prog">
+            <tr class="sub"><td class="t">10:00</td><td>개회 및 참석자 소개 · 개회사 조준 인천병원장 · 축사 이재갑 수원대학교 석좌교수</td></tr>
+            <tr><td class="t">10:15</td><td><span class="k">발표 1</span><div class="ttl">산재 전문재활프로그램의 개발, 국내 재활의료전달체계에서의 의미</div><div class="who">조남순 · 인천병원 재활전문센터장</div></td></tr>
+            <tr><td class="t">10:35</td><td><span class="k">발표 2</span><div class="ttl">산재 전문재활프로그램의 의료적 효과성 분석 및 의료재활데이터베이스 구축, 향후 연구방향</div><div class="who">김진홍 · 인천병원 재활의학연구센터 책임연구원</div></td></tr>
+            <tr><td class="t">10:55</td><td><span class="k">발표 3</span><div class="ttl">산재의료재활전달체계 및 소속의료기관의 역할</div><div class="who">손동균 · 근로복지공단 서울의원 센터장</div></td></tr>
+            <tr class="sub"><td class="t">11:15</td><td>휴식</td></tr>
+            <tr><td class="t">11:25</td><td><span class="k">패널토론</span><div class="ttl">산재외상재활 전달체계와 소속의료기관의 역할</div><div class="who">좌장 주영수 · 강원대학교병원 예방의학과 교수</div>
+              <ul class="panel-list">
+                <li><b>이자호</b> 서울대학교병원 재활의학과 교수 — 산재의료재활이 국내 재활의료체계 발전에 갖는 의미</li>
+                <li><b>최동환</b> 아주대학교 의과대학 외상학교실 교수 — 급성기 후 외상전달체계의 현황과 연결 과제</li>
+                <li><b>이강표</b> 인천병원 재활의학연구센터장 — 산재 외상재활 및 소속의료기관의 역할</li>
+                <li><b>김노을</b> 근로복지연구원 책임연구원 — 산재 외상재활 제도개선·운영방향</li>
+              </ul></td></tr>
+            <tr class="sub"><td class="t">12:15</td><td>폐회 및 인사말씀 · 이강표 재활의학연구센터장</td></tr>
+          </table>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:1.4rem;">
+          <!-- 자료집 -->
+          <div class="card">
+            <h4><i class="ti ti-book" aria-hidden="true"></i>자료집</h4>
+            <div class="book">
+              <a href="symposium/2026/rmrc-symposium-2026-proceedings.pdf" target="_blank" rel="noopener">
+                <img class="book-cover" src="symposium/2026/proceedings-cover.jpg" alt="제1회 산재 의료재활 심포지엄 자료집 표지" loading="lazy">
+              </a>
+              <div>
+                <h5>제1회 산재 의료재활 심포지엄 자료집</h5>
+                <div class="meta">2026. 11. · 72쪽 · PDF 16MB</div>
+                <ul class="toc">
+                  <li><span>행사 개요 · 인사말 · 프로그램</span><span>2</span></li>
+                  <li><span>좌장 · 발표자 · 패널 약력</span><span>6</span></li>
+                  <li><span>발표 1 · 조남순</span><span>9</span></li>
+                  <li><span>발표 2 · 김진홍</span><span>43</span></li>
+                  <li><span>발표 3 · 손동균</span><span>55</span></li>
+                  <li><span>패널토론 및 종합 질의응답</span><span>67</span></li>
+                </ul>
+                <div class="btns">
+                  <a class="btn primary" href="symposium/2026/rmrc-symposium-2026-proceedings.pdf" download="제1회_산재의료재활심포지엄_자료집_2026.pdf"><i class="ti ti-download" aria-hidden="true"></i> 내려받기</a>
+                  <a class="btn ghost" href="symposium/2026/rmrc-symposium-2026-proceedings.pdf" target="_blank" rel="noopener"><i class="ti ti-eye" aria-hidden="true"></i> 바로 보기</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 주요 내용 -->
+          <div class="card">
+            <h4><i class="ti ti-bulb" aria-hidden="true"></i>주요 내용</h4>
+            <ul class="findings">
+              <li><i class="ti ti-stethoscope" aria-hidden="true"></i><span><b class="fk">발표 1 · 조남순</b>산재 환자의 재활은 신체기능 회복을 넘어 직장복귀까지 목표로 합니다. 손상 부위별 집중재활과 작업동작 훈련·작업능력평가 등 직장복귀 지원프로그램을 소개했고, 중증 외상환자는 급성기 치료가 길어져 회복기 재활기관의 입원 기준을 맞추기 어렵다는 한계를 짚었습니다.</span></li>
+              <li><i class="ti ti-chart-line" aria-hidden="true"></i><span><b class="fk">발표 2 · 김진홍</b>허리·어깨·하지골절·하지절단 네 차례 연구에서 전문재활 참여 후 통증·기능·보행 지표가 개선됐습니다. 재해 후 90일 이내 집중재활 연계가 중요하다는 점과, 의료재활데이터베이스를 산재보험·고용 자료와 연계해 직장복귀까지 분석하는 연구 방향을 제시했습니다.</span></li>
+              <li><i class="ti ti-map-2" aria-hidden="true"></i><span><b class="fk">발표 3 · 손동균</b>건강보험 중심 체계가 산재 환자의 직장복귀 목적을 충분히 반영하지 못하고, 수가와 수익성에 따라 지역별 재활 접근성 격차가 생긴다고 분석했습니다. 권역외상센터와의 진료 연계, 산재 승인 전 조기 재활지원을 대안으로 제안했습니다.</span></li>
+              <li><i class="ti ti-messages" aria-hidden="true"></i><span><b class="fk">패널토론</b>급성기 치료 후 전원 과정의 치료 공백과 중증 산재환자의 재활 접근성 문제를 다뤘습니다. 의료기관 간 역할 분담·정보 공유·전원 기준 마련이 필요하다는 데 의견이 모였고, 서울·경인 지역 외상진료기관과 인천병원을 중심으로 한 중증외상 협력모델을 시범 검토하자는 제안이 나왔습니다.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 패널 토론문 -->
+      <div class="card" id="panel-2026" style="margin-top:1.4rem;">
+        <h4><i class="ti ti-file-text" aria-hidden="true"></i>패널 토론문 <span class="h4-sub">발언 순서 · 4편</span></h4>
+        <div class="papers">
+          <a class="paper" href="symposium/2026/panel/panel-1-lee-jaho.pdf" target="_blank" rel="noopener">
+            <span class="paper-no">01</span>
+            <span class="paper-body">
+              <b>산재 의료재활이 국내 재활의료체계 발전에 갖는 의미</b>
+              <small class="paper-who">이자호 · 서울대학교병원·국립교통재활병원 재활의학과 교수</small>
+              <small class="paper-gist">산재 전문재활의 경험이 국내 재활의료 발전에 기여해 왔음을 짚고, 재활전문센터 인력·시설·연구 지원의 지속을 제안</small>
+            </span>
+            <span class="paper-meta">PDF · 6쪽 <i class="ti ti-download" aria-hidden="true"></i></span>
+          </a>
+          <a class="paper" href="symposium/2026/panel/panel-2-choi-donghwan.pdf" target="_blank" rel="noopener">
+            <span class="paper-no">02</span>
+            <span class="paper-body">
+              <b>외상외과 시각에서 본 산재 외상재활과 소속의료기관의 역할</b>
+              <small class="paper-who">최동환 · 아주대학교 의과대학 외상학교실 교수</small>
+              <small class="paper-gist">권역외상센터 중환자실 단계부터 조기 재활계획을 세우고, 전원 후에도 소속의료기관이 연속성을 이어받는 구조를 제안</small>
+            </span>
+            <span class="paper-meta">PDF · 3쪽 <i class="ti ti-download" aria-hidden="true"></i></span>
+          </a>
+          <a class="paper" href="symposium/2026/panel/panel-3-lee-gangpyo.pdf" target="_blank" rel="noopener">
+            <span class="paper-no">03</span>
+            <span class="paper-body">
+              <b>산재 외상재활 및 소속의료기관의 역할</b>
+              <small class="paper-who">이강표 · 근로복지공단 인천병원 재활의학연구센터장</small>
+              <small class="paper-gist">보험자 병원의 성과를 치료 경로·기능 회복·복귀로 평가하고, 조기 재활계획과 전달체계를 공동연구로 먼저 구축하자고 제안</small>
+            </span>
+            <span class="paper-meta">PDF · 6쪽 <i class="ti ti-download" aria-hidden="true"></i></span>
+          </a>
+          <a class="paper" href="symposium/2026/panel/panel-4-kim-noeul.pdf" target="_blank" rel="noopener">
+            <span class="paper-no">04</span>
+            <span class="paper-body">
+              <b>산재 외상재활 제도개선 및 운영방향</b>
+              <small class="paper-who">김노을 · 근로복지공단 근로복지연구원 책임연구원</small>
+              <small class="paper-gist">전문재활 공급기반이 적시 이용으로 이어지지 못하는 원인을 수요·공급·전달체계 측면에서 분석하고, 재활인증의료기관 평가 개선 방향을 제시</small>
+            </span>
+            <span class="paper-meta">PDF · 9쪽 <i class="ti ti-download" aria-hidden="true"></i></span>
+          </a>
+        </div>
+        <p class="papers-note">토론문은 각 패널의 개인 의견이며, 근로복지공단의 공식 입장과 다를 수 있습니다.</p>
+      </div>
+
+      <!-- 언론보도 -->
+      <div class="card" style="margin-top:1.4rem;">
+        <h4><i class="ti ti-news" aria-hidden="true"></i>언론 보도</h4>
+        <div class="press">
+          <a href="https://www.k-health.com/news/articleView.html?idxno=102203" target="_blank" rel="noopener"><span class="src">헬스경향</span><span class="hl">산재 재활, 치료 넘어 일터 복귀까지…의료기관 연계 강화해야</span><i class="ti ti-external-link" aria-hidden="true"></i></a>
+          <a href="https://www.viva100.com/article/20261113500446" target="_blank" rel="noopener"><span class="src">브릿지경제</span><span class="hl">산재환자 재활 효과 확인됐지만…중증환자 치료 공백 우려</span><i class="ti ti-external-link" aria-hidden="true"></i></a>
+          <a href="https://www.viva100.com/article/20261113500447" target="_blank" rel="noopener"><span class="src">브릿지경제</span><span class="hl">근로복지공단 인천병원, 산재 의료재활 연계 강화 논의</span><i class="ti ti-external-link" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 연도별 자료실: 매년 맨 위에 한 줄씩 추가 -->
+    <section id="archive">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">Archive</div>
+          <h2 class="sec-title">연도별 <em>자료실</em></h2>
+        </div>
+      </div>
+      <table class="archive">
+        <thead><tr><th>연도</th><th>회차 · 주제</th><th>일시 · 장소</th><th>자료</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="yr">2027</td>
+            <td>제2회 산재 의료재활 심포지엄</td>
+            <td class="muted">일정 확정 후 안내</td>
+            <td class="muted">—</td>
+          </tr>
+          <tr>
+            <td class="yr">2026</td>
+            <td><a href="#y2026" style="text-decoration:none;font-weight:700;">제1회</a> · 산재 의료재활의 오늘, 그리고 내일을 함께 그리다</td>
+            <td class="muted">11. 13.(금) · 서울역 직업능력심사평가원</td>
+            <td><a class="dl" href="symposium/2026/rmrc-symposium-2026-proceedings.pdf" target="_blank" rel="noopener"><i class="ti ti-file-type-pdf" aria-hidden="true"></i> 자료집</a><br><a class="dl" href="#panel-2026"><i class="ti ti-files" aria-hidden="true"></i> 패널 토론문 4편</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="contact">
+      <p><b>심포지엄 문의</b> · 인천병원 재활의학연구센터 · 032-500-0639</p>
+      <a class="btn ghost" href="index.html#news-notice"><i class="ti ti-arrow-left" aria-hidden="true"></i> 센터 소식으로 돌아가기</a>
+    </div>
+  </main>
+
+  <footer>
+    © 근로복지공단 인천병원 재활의학연구센터 (RMRC) · <a href="index.html">홈페이지</a>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="사진 크게 보기"><img alt=""><p></p></div>
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox'), im = lb.querySelector('img'), cap = lb.querySelector('p');
+      document.querySelectorAll('.ph').forEach(function (f) {
+        f.addEventListener('click', function () {
+          var i = f.querySelector('img'); im.src = i.src; im.alt = i.alt;
+          cap.textContent = f.getAttribute('data-cap') || ''; lb.classList.add('open');
+        });
+      });
+      lb.addEventListener('click', function () { lb.classList.remove('open'); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('open'); });
+    })();
+  </script>
+</body>
+</html>
