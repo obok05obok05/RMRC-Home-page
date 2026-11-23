@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="근로복지공단 인천병원 재활의학연구센터 교육자료" />
+  <title>교육자료 | 재활의학연구센터</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    /* 홈페이지(index.html)와 같은 색상 체계 */
+    :root{
+      --color-primary:#0f172a; --color-accent:#1d4ed8; --color-accent-dark:#1e40af; --color-accent-light:#dbeafe;
+      --color-bg:#ffffff; --color-bg-alt:#eef2f7; --color-bg-subtle:#e8edf4;
+      --color-text:#0f172a; --color-text-muted:#374151; --color-text-light:#6b7280;
+      --color-border:#d1d9e0;
+      --font-body:'Pretendard Variable','Pretendard',-apple-system,sans-serif;
+      --font-title:'Playfair Display','Pretendard Variable',serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+    /* 상단 바 */
+    .top-bar{border-bottom:1px solid var(--color-border);background:#fff;position:sticky;top:0;z-index:10}
+    .top-bar .container{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+    .inst{font-size:14px;font-weight:700;letter-spacing:-0.02em}
+    .inst span{color:var(--color-text-light);font-weight:500;margin-right:6px}
+    .back{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--color-text-muted);padding:6px 12px;border:1px solid var(--color-border);border-radius:8px}
+    .back:hover{background:var(--color-bg-subtle);color:var(--color-text)}
+
+    /* 배너 */
+    .banner{background:var(--color-bg-alt);border-bottom:1px solid var(--color-border);padding:56px 0 48px}
+    .crumb{font-size:12px;color:var(--color-text-light);margin-bottom:14px}
+    .crumb b{color:var(--color-accent);font-weight:600}
+    .banner h1{font-family:var(--font-title);font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+    .banner h1 em{font-style:italic;font-weight:400;color:var(--color-accent)}
+    .banner p{margin-top:14px;font-size:15px;color:var(--color-text-muted);max-width:680px}
+
+    /* 강의자료 카드 */
+    main{padding:56px 0 80px}
+    .eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--color-text-light);margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+    .card{border:1px solid var(--color-border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;background:#fff;position:relative;overflow:hidden}
+    .card::before{content:"";position:absolute;left:0;top:0;width:4px;height:0;background:var(--color-accent);transition:height .3s}
+    .card:hover::before{height:100%}
+    .tag-row{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--color-accent-light);color:var(--color-accent-dark)}
+    .tag.gray{background:var(--color-bg-subtle);color:var(--color-text-muted)}
+    .card h2{font-size:21px;font-weight:700;letter-spacing:-0.02em;line-height:1.35}
+    .card .en{font-size:13px;color:var(--color-text-light);font-style:italic;margin-top:-8px}
+    .card p{font-size:14px;color:var(--color-text-muted)}
+    .toc{list-style:none;display:grid;gap:6px;font-size:13.5px;color:var(--color-text-muted);border-top:1px solid var(--color-border);padding-top:14px}
+    .toc li{display:flex;gap:10px}
+    .toc li b{color:var(--color-accent);font-weight:700;min-width:22px}
+    .meta{display:flex;flex-wrap:wrap;gap:16px;font-size:12.5px;color:var(--color-text-light)}
+    .meta i{margin-right:4px}
+    .open{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--color-accent)}
+    .open:hover{color:var(--color-accent-dark);text-decoration:underline}
+
+    /* 안내 */
+    .notice{margin-top:40px;background:var(--color-bg-alt);border:1px solid var(--color-border);border-radius:12px;padding:22px 26px;font-size:13.5px;color:var(--color-text-muted);display:flex;gap:14px}
+    .notice i{font-size:20px;color:var(--color-accent);margin-top:2px}
+    .notice ul{margin-top:6px;padding-left:18px}
+    footer{border-top:1px solid var(--color-border);padding:24px 0;font-size:12px;color:var(--color-text-light)}
+    @media(max-width:480px){.container{padding:0 16px}.card{padding:22px}.inst span{display:none}}
+  </style>
+</head>
+<body>
+
+  <!-- 상단 바 -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="inst"><span>공공기관</span>근로복지공단 인천병원 재활의학연구센터</div>
+      <a href="index.html" class="back"><i class="ti ti-arrow-left" aria-hidden="true"></i> RMRC 홈페이지</a>
+    </div>
+  </div>
+
+  <!-- 배너 -->
+  <section class="banner">
+    <div class="container">
+      <div class="crumb">주요 역할 ❯ <b>인력 전문성 교육 지원</b></div>
+      <h1>교육자료, <em>절단 재활</em></h1>
+      <p>산재병원 소속 의료전문직의 역량 강화를 위해 재활의학연구센터가 개발한 강의자료입니다. 센터 가이드와 국내외 교육 내용을 바탕으로 평가·처방·의지훈련을 사례 중심으로 정리했습니다.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="eyebrow">강의자료 · Lectures</div>
+      <div class="grid">
+
+        <!-- 하지절단 -->
+        <article class="card">
+          <div class="tag-row"><span class="tag">하지절단</span><span class="tag gray">96장</span><span class="tag gray">영상 포함</span></div>
+          <h2>하지절단 재활: 평가·처방에서 집중의지훈련까지</h2>
+          <div class="en">Lower Limb Amputation: Assessment, Prescription &amp; Intensive Prosthetic Training</div>
+          <p>절단 수준과 평가, 소켓·무릎·발 처방과 정렬, 보행 8단계 관찰, 단계별 집중의지훈련과 사례를 한 흐름으로 다룹니다.</p>
+          <ul class="toc">
+            <li><b>01</b>하지절단 이해</li>
+            <li><b>02</b>의지를 신기 전에</li>
+            <li><b>03</b>평가</li>
+            <li><b>04</b>처방과 정렬</li>
+            <li><b>05</b>집중의지훈련</li>
+            <li><b>06</b>전자제어 무릎과 양측 대퇴</li>
+            <li><b>07</b>사례로 보는 하지절단 재활</li>
+            <li><b>08</b>집으로, 일터로</li>
+          </ul>
+          <div class="meta"><span><i class="ti ti-book"></i>COMWEL RMRC 하지절단 집중의지훈련 가이드(2026)</span><span><i class="ti ti-user"></i>책임연구원 김진홍</span></div>
+          <a class="open" href="https://claude.ai/artifact/QAAkbhFz6TixFFPw4WJvnz" target="_blank" rel="noopener">강의자료 열기 (내부 공유) <i class="ti ti-arrow-up-right" aria-hidden="true"></i></a>
+        </article>
+
+        <!-- 상지절단 -->
+        <article class="card">
+          <div class="tag-row"><span class="tag">상지절단</span><span class="tag gray">65장</span><span class="tag gray">부록 포함</span></div>
+          <h2>상지절단의 분류와 평가, 의지 처방 원칙</h2>
+          <div class="en">Upper Limb Amputation: Classification, Assessment &amp; Prosthetic Prescription</div>
+          <p>상지절단의 분류와 재활 여정, 의지·보조기기 처방 원칙을 사례와 맞춤형 보조기구 제작 경험으로 풀어냅니다.</p>
+          <ul class="toc">
+            <li><b>01</b>상지절단이란</li>
+            <li><b>02</b>절단 이후의 재활 여정</li>
+            <li><b>03</b>의지와 보조기기</li>
+            <li><b>04</b>사례로 보는 상지절단 재활</li>
+            <li><b>05</b>맞춤형 보조기구</li>
+            <li><b>06</b>정리와 용어 · 부록</li>
+          </ul>
+          <div class="meta"><span><i class="ti ti-book"></i>상지절단 집중의지훈련 매뉴얼</span><span><i class="ti ti-user"></i>책임연구원 김진홍</span></div>
+          <a class="open" href="https://claude.ai/artifact/UsTCJMhFJW2L3BLuBmw281" target="_blank" rel="noopener">강의자료 열기 (내부 공유) <i class="ti ti-arrow-up-right" aria-hidden="true"></i></a>
+        </article>
+
+      </div>
+
+      <!-- 이용 안내 -->
+      <div class="notice">
+        <i class="ti ti-lock" aria-hidden="true"></i>
+        <div>
+          <b>이용 안내</b>
+          <ul>
+            <li>강의자료는 산재병원 의료전문직 교육용으로, 공유 권한이 있는 분만 열람할 수 있습니다.</li>
+            <li>환자 영상·사진은 얼굴 모자이크 등 비식별 처리를 했으며, 외부 배포·재게시를 금합니다.</li>
+            <li>열람 권한과 교육 문의는 재활의학연구센터로 연락해 주세요.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer><div class="container">© 근로복지공단 인천병원 재활의학연구센터</div></footer>
+</body>
+</html>
